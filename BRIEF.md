@@ -40,8 +40,9 @@ plus direct phone + email. Why:
   scheduling) so you can quote fast without a back-and-forth.
 - **Low friction / free tier**, works on static GitHub Pages, AJAX success state built in.
 
-**Action required:** create the SDM Formspree form → replace `YOUR_FORM_ID` in `contact.html`.
-Do **not** reuse strAI's `mjgpqgkz` endpoint (leads would land in strAI's inbox).
+**Done:** SDM Formspree form wired in `contact.html` (`f/xqerjgop`, its own project,
+submissions → straydogmedia.ca@gmail.com). Separate from strAI's `mjgpqgkz`.
+*Note: Formspree's free tier is 50 submissions/mo — upgrade if volume grows.*
 
 *Optional add-on:* a "book a discovery call" link (Calendly/Google Appointments) next to the
 form for higher-intent municipal/business leads. Say the word and I'll wire it in.
