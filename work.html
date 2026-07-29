@@ -64,11 +64,14 @@
 
 <!-- ============================================================
   PORTFOLIO REELS
-  Each card shows a poster + a short muted preview (hover/tap).
-  To link the FULL video, add href + a .reel__full link, e.g.:
-    <a class="reel__full" href="https://youtu.be/XXXX" target="_blank" rel="noopener"
-       data-fr="Voir la version complète ↗" data-en="Watch full video ↗">Voir la version complète ↗</a>
-  Titles/categories are editable — tweak the data-fr/data-en text.
+  Two card types:
+   1) Local preview + full video: <a class="reel" data-preview="/assets/portfolio/SLUG.mp4"
+      href="https://youtu.be/ID" target="_blank" rel="noopener"> ... plays preview on
+      hover/tap, opens YouTube on click.
+   2) YouTube-only: same <a> without data-preview or <video>; poster is the YT thumbnail.
+  Inside .reel__overlay, .reel__full is a SPAN (not a link) — the whole card is the link,
+  so nesting an <a> would be invalid.
+  Titles/categories are editable via the data-fr / data-en attributes.
 ============================================================ -->
 <section class="section" style="padding-top:0" id="work">
   <div class="container">
