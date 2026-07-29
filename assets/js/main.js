@@ -179,8 +179,9 @@ if (form) {
     if (touch) {
       // Tap toggles preview; only one plays at a time.
       reel.addEventListener('click', function (e) {
-        // let the "Watch full" link work normally
-        if (e.target.closest('.reel__full')) return;
+        // Cards that link out (YouTube) should just follow the link on tap.
+        var href = reel.getAttribute('href') || '';
+        if (href && href.charAt(0) !== '#') return;
         e.preventDefault();
         if (reel.classList.contains('is-playing')) { stop(); return; }
         reels.forEach(function (r) { if (r !== reel) { r.classList.remove('is-playing'); var v = r.querySelector('.reel__vid'); if (v) v.pause(); } });
