@@ -8,9 +8,9 @@
   <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('sdm-theme')||'dark')}catch(e){}</script>
   <title>Réalisations — Stray Dog Media</title>
   <meta name="description" id="meta-desc"
-    data-desc-fr="Réalisations vidéo et diffusions en direct de Stray Dog Media dans le Haut-Saint-Laurent."
-    data-desc-en="Video work and livestreams by Stray Dog Media in the Haut-Saint-Laurent."
-    content="Réalisations vidéo et diffusions en direct de Stray Dog Media dans le Haut-Saint-Laurent.">
+    data-desc-fr="Réalisations vidéo et diffusions en direct de Stray Dog Media dans le Haut-Saint-Laurent : Foire d'Ormstown, rodéo, demolition derby, promos et événements."
+    data-desc-en="Video work and livestreams by Stray Dog Media in the Haut-Saint-Laurent: Ormstown Fair, rodeo, demolition derby, promos and events."
+    content="Réalisations vidéo et diffusions en direct de Stray Dog Media dans le Haut-Saint-Laurent : Foire d'Ormstown, rodéo, demolition derby, promos et événements.">
   <link rel="icon" href="/assets/brand/favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,31 +58,147 @@
   <div class="container">
     <p class="eyebrow gs-reveal" data-fr="Réalisations" data-en="Work">Réalisations</p>
     <h1 class="gs-reveal" style="font-size:var(--step-4)" data-fr="Des histoires du Haut-Saint-Laurent" data-en="Stories from the Haut-Saint-Laurent">Des histoires du Haut-Saint-Laurent</h1>
-    <p class="lead hero-sub gs-reveal" data-fr="Une sélection de projets vidéo et de diffusions en direct. (Contenu à venir — voir BRIEF.md.)" data-en="A selection of video projects and livestreams. (Content coming soon — see BRIEF.md.)">Une sélection de projets vidéo et de diffusions en direct. (Contenu à venir — voir BRIEF.md.)</p>
+    <p class="lead hero-sub gs-reveal" data-fr="Un aperçu de nos vidéos — passez la souris (ou touchez) pour lancer la prévisualisation." data-en="A look at our video work — hover (or tap) to play the preview.">Un aperçu de nos vidéos — passez la souris (ou touchez) pour lancer la prévisualisation.</p>
   </div>
 </header>
 
-<section class="section" style="padding-top:0">
+<!-- ============================================================
+  PORTFOLIO REELS
+  Each card shows a poster + a short muted preview (hover/tap).
+  To link the FULL video, add href + a .reel__full link, e.g.:
+    <a class="reel__full" href="https://youtu.be/XXXX" target="_blank" rel="noopener"
+       data-fr="Voir la version complète ↗" data-en="Watch full video ↗">Voir la version complète ↗</a>
+  Titles/categories are editable — tweak the data-fr/data-en text.
+============================================================ -->
+<section class="section" style="padding-top:0" id="work">
   <div class="container">
-    <div class="grid grid-3">
-      <article class="card card-interactive gs-reveal" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:16/9;display:grid;place-items:center;background:var(--surface-2);color:var(--text-subtle);font-family:var(--font-mono)">16:9</div>
-        <div style="padding:var(--space-md)"><span class="chip chip-accent" data-fr="Vidéographie" data-en="Videography">Vidéographie</span><h3 class="card-title" style="font-size:var(--step-1);margin-top:var(--space-xs)" data-fr="Titre du projet" data-en="Project title">Titre du projet</h3><p class="card-body" data-fr="Commerce local · vidéo promotionnelle" data-en="Local business · promo video">Commerce local · vidéo promotionnelle</p></div>
-      </article>
-      <article class="card card-interactive gs-reveal" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:16/9;display:grid;place-items:center;background:var(--surface-2);color:var(--text-subtle);font-family:var(--font-mono)">16:9</div>
-        <div style="padding:var(--space-md)"><span class="chip chip-accent" data-fr="Direct" data-en="Livestream">Direct</span><h3 class="card-title" style="font-size:var(--step-1);margin-top:var(--space-xs)" data-fr="Titre du projet" data-en="Project title">Titre du projet</h3><p class="card-body" data-fr="Municipalité · séance du conseil" data-en="Municipality · council meeting">Municipalité · séance du conseil</p></div>
-      </article>
-      <article class="card card-interactive gs-reveal" style="padding:0;overflow:hidden">
-        <div style="aspect-ratio:16/9;display:grid;place-items:center;background:var(--surface-2);color:var(--text-subtle);font-family:var(--font-mono)">16:9</div>
-        <div style="padding:var(--space-md)"><span class="chip chip-accent" data-fr="Événement" data-en="Event">Événement</span><h3 class="card-title" style="font-size:var(--step-1);margin-top:var(--space-xs)" data-fr="Titre du projet" data-en="Project title">Titre du projet</h3><p class="card-body" data-fr="Festival local · récapitulatif" data-en="Local festival · recap">Festival local · récapitulatif</p></div>
-      </article>
+    <div class="reel-grid">
+
+      <a class="reel reel--featured gs-reveal" data-preview="/assets/portfolio/recap-2025.mp4" href="#work">
+        <img class="reel__media" src="/assets/portfolio/recap-2025.jpg" alt="Stray Dog Media 2025 recap" loading="lazy">
+        <video class="reel__vid" muted loop playsinline preload="none" poster="/assets/portfolio/recap-2025.jpg"></video>
+        <div class="reel__scrim"></div>
+        <span class="reel__badge" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <div class="reel__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="reel__overlay">
+          <span class="reel__cat" data-fr="Rétrospective" data-en="Showreel">Rétrospective</span>
+          <span class="reel__title" data-fr="Rétrospective 2025" data-en="2025 Recap">Rétrospective 2025</span>
+        </div>
+      </a>
+
+      <a class="reel gs-reveal" data-preview="/assets/portfolio/ormstown-fair-parade-2025.mp4" href="#work">
+        <img class="reel__media" src="/assets/portfolio/ormstown-fair-parade-2025.jpg" alt="Ormstown Fair Parade 2025" loading="lazy">
+        <video class="reel__vid" muted loop playsinline preload="none" poster="/assets/portfolio/ormstown-fair-parade-2025.jpg"></video>
+        <div class="reel__scrim"></div>
+        <span class="reel__badge" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <div class="reel__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="reel__overlay">
+          <span class="reel__cat" data-fr="Événement" data-en="Event">Événement</span>
+          <span class="reel__title" data-fr="Défilé de la Foire d'Ormstown 2025" data-en="Ormstown Fair Parade 2025">Défilé de la Foire d'Ormstown 2025</span>
+        </div>
+      </a>
+
+      <a class="reel gs-reveal" data-preview="/assets/portfolio/rodeo-teaser.mp4" href="#work">
+        <img class="reel__media" src="/assets/portfolio/rodeo-teaser.jpg" alt="Ormstown Rodeo teaser" loading="lazy">
+        <video class="reel__vid" muted loop playsinline preload="none" poster="/assets/portfolio/rodeo-teaser.jpg"></video>
+        <div class="reel__scrim"></div>
+        <span class="reel__badge" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <div class="reel__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="reel__overlay">
+          <span class="reel__cat" data-fr="Événement" data-en="Event">Événement</span>
+          <span class="reel__title" data-fr="Rodéo d'Ormstown — teaser" data-en="Ormstown Rodeo — teaser">Rodéo d'Ormstown — teaser</span>
+        </div>
+      </a>
+
+      <a class="reel gs-reveal" data-preview="/assets/portfolio/demolition-derby-2025.mp4" href="#work">
+        <img class="reel__media" src="/assets/portfolio/demolition-derby-2025.jpg" alt="Demolition Derby 2025" loading="lazy">
+        <video class="reel__vid" muted loop playsinline preload="none" poster="/assets/portfolio/demolition-derby-2025.jpg"></video>
+        <div class="reel__scrim"></div>
+        <span class="reel__badge" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <div class="reel__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="reel__overlay">
+          <span class="reel__cat" data-fr="Événement" data-en="Event">Événement</span>
+          <span class="reel__title">Demolition Derby 2025</span>
+        </div>
+      </a>
+
+      <a class="reel gs-reveal" data-preview="/assets/portfolio/la-grande-marche-2025.mp4" href="#work">
+        <img class="reel__media" src="/assets/portfolio/la-grande-marche-2025.jpg" alt="La Grande Marche 2025 Ormstown" loading="lazy">
+        <video class="reel__vid" muted loop playsinline preload="none" poster="/assets/portfolio/la-grande-marche-2025.jpg"></video>
+        <div class="reel__scrim"></div>
+        <span class="reel__badge" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <div class="reel__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="reel__overlay">
+          <span class="reel__cat" data-fr="Communauté" data-en="Community">Communauté</span>
+          <span class="reel__title" data-fr="La Grande Marche 2025 — Ormstown" data-en="La Grande Marche 2025 — Ormstown">La Grande Marche 2025 — Ormstown</span>
+        </div>
+      </a>
+
+      <a class="reel gs-reveal" data-preview="/assets/portfolio/lba-golf-2025.mp4" href="#work">
+        <img class="reel__media" src="/assets/portfolio/lba-golf-2025.jpg" alt="LBA Golf Tournament 2025" loading="lazy">
+        <video class="reel__vid" muted loop playsinline preload="none" poster="/assets/portfolio/lba-golf-2025.jpg"></video>
+        <div class="reel__scrim"></div>
+        <span class="reel__badge" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <div class="reel__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="reel__overlay">
+          <span class="reel__cat" data-fr="Événement" data-en="Event">Événement</span>
+          <span class="reel__title" data-fr="Tournoi de golf LBA 2025" data-en="LBA Golf Tournament 2025">Tournoi de golf LBA 2025</span>
+        </div>
+      </a>
+
+      <a class="reel gs-reveal" data-preview="/assets/portfolio/erpromo26.mp4" href="#work">
+        <img class="reel__media" src="/assets/portfolio/erpromo26.jpg" alt="Business promo" loading="lazy">
+        <video class="reel__vid" muted loop playsinline preload="none" poster="/assets/portfolio/erpromo26.jpg"></video>
+        <div class="reel__scrim"></div>
+        <span class="reel__badge" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <div class="reel__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="reel__overlay">
+          <span class="reel__cat" data-fr="Entreprise" data-en="Business">Entreprise</span>
+          <span class="reel__title" data-fr="Vidéo promotionnelle" data-en="Business promo">Vidéo promotionnelle</span>
+        </div>
+      </a>
+
+      <a class="reel gs-reveal" data-preview="/assets/portfolio/maison-zen.mp4" href="#work">
+        <img class="reel__media" src="/assets/portfolio/maison-zen.jpg" alt="Maison Zen" loading="lazy">
+        <video class="reel__vid" muted loop playsinline preload="none" poster="/assets/portfolio/maison-zen.jpg"></video>
+        <div class="reel__scrim"></div>
+        <span class="reel__badge" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <div class="reel__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="reel__overlay">
+          <span class="reel__cat" data-fr="Entreprise" data-en="Business">Entreprise</span>
+          <span class="reel__title">Maison Zen</span>
+        </div>
+      </a>
+
+      <a class="reel gs-reveal" data-preview="/assets/portfolio/community-garden.mp4" href="#work">
+        <img class="reel__media" src="/assets/portfolio/community-garden.jpg" alt="Community Garden" loading="lazy">
+        <video class="reel__vid" muted loop playsinline preload="none" poster="/assets/portfolio/community-garden.jpg"></video>
+        <div class="reel__scrim"></div>
+        <span class="reel__badge" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <div class="reel__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="reel__overlay">
+          <span class="reel__cat" data-fr="OBNL" data-en="Non-profit">OBNL</span>
+          <span class="reel__title" data-fr="Jardin communautaire" data-en="Community Garden">Jardin communautaire</span>
+        </div>
+      </a>
+
     </div>
-    <p class="muted gs-reveal" style="margin-top:var(--space-lg);font-size:var(--step--1)" data-fr="Remplacez ces cartes par de vrais projets (vidéos YouTube/Vimeo intégrées, vignettes, liens). Liste de contenu à fournir dans BRIEF.md." data-en="Replace these cards with real projects (embedded YouTube/Vimeo, thumbnails, links). Content list to be provided in BRIEF.md.">Remplacez ces cartes par de vrais projets (vidéos YouTube/Vimeo intégrées, vignettes, liens). Liste de contenu à fournir dans BRIEF.md.</p>
+    <p class="muted gs-reveal" style="margin-top:var(--space-md);font-size:var(--step--1)" data-fr="Prévisualisations muettes de ~12 s. Les versions complètes seront liées vers YouTube/Vimeo." data-en="~12 s muted previews. Full versions will link out to YouTube/Vimeo.">Prévisualisations muettes de ~12 s. Les versions complètes seront liées vers YouTube/Vimeo.</p>
   </div>
 </section>
 
-<section class="section" style="background:var(--bg-sunken);text-align:center">
+<!-- Livestream note -->
+<section class="twin-band" id="livestream">
+  <div class="container twin-inner">
+    <div class="twin-copy gs-reveal-left">
+      <p class="eyebrow" data-fr="Diffusion en direct" data-en="Livestreaming">Diffusion en direct</p>
+      <p class="lead" style="margin-top:var(--space-2xs)" data-fr="On diffuse aussi en direct : séances du conseil, sports et événements. Exemples de diffusions sur demande." data-en="We also stream live: council meetings, sports and events. Livestream examples available on request.">On diffuse aussi en direct : séances du conseil, sports et événements. Exemples de diffusions sur demande.</p>
+    </div>
+    <a href="/contact.html" class="btn btn-ghost gs-reveal-right" data-fr="Demander des exemples" data-en="Request examples">Demander des exemples</a>
+  </div>
+</section>
+
+<section class="section" style="text-align:center">
   <div class="container container-narrow">
     <h2 class="gs-reveal" style="font-size:var(--step-3)" data-fr="Votre projet pourrait être le prochain" data-en="Your project could be next">Votre projet pourrait être le prochain</h2>
     <div class="hero-cta gs-reveal" style="justify-content:center;margin-top:var(--space-md)">

@@ -155,5 +155,43 @@ if (form) {
   });
 }
 
+/* --- Portfolio reels: preview on hover (desktop) / tap (touch) --- */
+(function () {
+  var reels = document.querySelectorAll('.reel[data-preview]');
+  if (!reels.length) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+
+  reels.forEach(function (reel) {
+    var vid = reel.querySelector('.reel__vid');
+    if (!vid) return;
+    // Lazy-load the source only when first needed.
+    function ensureSrc() {
+      if (vid.dataset.loaded) return;
+      var src = reel.getAttribute('data-preview');
+      if (src) { vid.src = src; vid.dataset.loaded = '1'; }
+    }
+    function play() { ensureSrc(); reel.classList.add('is-playing'); var p = vid.play(); if (p && p.catch) p.catch(function(){}); }
+    function stop() { reel.classList.remove('is-playing'); vid.pause(); try { vid.currentTime = 0; } catch (e) {} }
+
+    if (reduce) return; // honor reduced motion: posters only
+
+    if (touch) {
+      // Tap toggles preview; only one plays at a time.
+      reel.addEventListener('click', function (e) {
+        // let the "Watch full" link work normally
+        if (e.target.closest('.reel__full')) return;
+        e.preventDefault();
+        if (reel.classList.contains('is-playing')) { stop(); return; }
+        reels.forEach(function (r) { if (r !== reel) { r.classList.remove('is-playing'); var v = r.querySelector('.reel__vid'); if (v) v.pause(); } });
+        play();
+      });
+    } else {
+      reel.addEventListener('mouseenter', play);
+      reel.addEventListener('mouseleave', stop);
+    }
+  });
+})();
+
 /* Apply stored/default language once (script is deferred). */
 applyLang(lang);
