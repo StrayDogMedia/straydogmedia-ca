@@ -1,42 +1,50 @@
 # straydogmedia.ca
 
-The Stray Dog Media website — being moved to a static, GitHub-hosted build with
-a proper design system, mirroring the strAI.ca setup.
+The Stray Dog Media website — a static, GitHub-hosted, **bilingual (FR/EN)**
+multi-page site with its own design system. Built as the **twin of strAI.ca**:
+same conventions and cross-links, its own orange brand.
 
-**Status:** `v0.1` — design-system starting point. Not yet live. The current
-site still runs on its existing no-code builder until this replaces it.
+**Positioning:** the **video & livestream studio of the Haut-Saint-Laurent** —
+for local businesses, non-profits, municipalities and community events.
+Tagline: *Capture. Create. Connect.*
 
-## What's here
+**Status:** `v0.2` — full multi-page scaffold with real bilingual copy.
+Placeholder portfolio + a Formspree endpoint to wire up. Not yet live.
+
+## Pages
+
+| File | Page |
+|------|------|
+| `index.html` | Home — hero, services, who-it's-for, strAI twin band, CTA |
+| `services.html` | Videography · Livestreaming · Event coverage + process |
+| `work.html` | Portfolio (placeholder cards — swap in real projects) |
+| `about.html` | Story, values, twin-to-strAI |
+| `contact.html` | Project-inquiry form + phone/email |
+| `design-system.html` | **Living style guide** — the design starting point |
+
+## Design system
 
 | Path | What it is |
 |------|-----------|
-| `design-system.html` | **Living style guide** — colors, type, spacing, components. The starting point for Design. Open this first. |
-| `index.html` | Starter homepage applying the system to the current site's content. |
-| `assets/css/tokens.css` | **Design tokens** — the single source of truth (color, type, space, radius, motion). Edit here to restyle everything. |
+| `assets/css/tokens.css` | **Single source of truth** — color, type, space, radius, motion. Dark is default; light + dark both defined. |
 | `assets/css/base.css` | Reset + branded element defaults. |
-| `assets/css/components.css` | Reusable UI (buttons, cards, nav, chips, hero, footer). |
-| `assets/js/main.js` | Theme toggle + scroll reveal. |
+| `assets/css/components.css` | Reusable UI, sharing strAI's class conventions (`.eyebrow`, `.btn-primary/.btn-ghost`, `#nav`, `.gs-reveal`, forms). |
+| `assets/js/main.js` | Sibling of strAI's `app.js`: bilingual toggle, theme, nav, mobile menu, GSAP reveals, Formspree submit. |
 | `assets/brand/` | Logo / favicon pulled from the current live site. |
-| `BRIEF.md` | Content inventory + redesign brief (what to finalize before launch). |
-| `CNAME` | `straydogmedia.ca` (for GitHub Pages when we go live). |
 
-## Design direction
+- **Palette:** Ink `#101014`, Paper `#FAF8F3`, Signal Orange `#FF4A1C` + warm neutral ramp.
+- **Type:** Space Grotesk (display) · Inter (body) · Space Mono (eyebrows/meta).
+- **Bilingual:** FR default; `data-fr` / `data-en` attributes, `#lang-btn` toggles, persists via `localStorage`.
+- **Twin to strAI:** every page cross-links strAI.ca (strAI already links back to SDM).
 
-**Evolve the mark.** Keep the monochrome camera-and-paw heritage; modernize
-with warm paper, deep ink, one signal-orange accent, a fluid type scale
-(Space Grotesk / Inter / Space Mono), and light + dark themes. Full rationale
-lives in the style guide.
+## Before launch (see BRIEF.md)
 
-## How to work in it
+1. **Create the SDM Formspree form** and replace `YOUR_FORM_ID` in `contact.html`
+   (⚠️ do NOT reuse strAI's endpoint — leads would go to the wrong inbox).
+2. Add real portfolio content to `work.html`.
+3. Fill remaining copy gaps (BRIEF §2).
+4. Create GitHub remote + Pages; move DNS off the current builder.
 
-- **Restyle globally:** change a value in `tokens.css`.
-- **Add a component:** add it to `components.css`, then showcase it in
-  `design-system.html` so the guide stays complete.
-- **Preview locally:** open `index.html` / `design-system.html` in a browser,
-  or run any static server (e.g. `python3 -m http.server`) from the repo root.
+## Preview locally
 
-## Not done yet
-
-- Real copy + portfolio content (see `BRIEF.md`).
-- GitHub remote — currently a **local repo only**; no remote created/pushed.
-- Migration cutover (DNS is on Cloudflare today).
+Open any `.html` in a browser, or run `python3 -m http.server` from the repo root.
