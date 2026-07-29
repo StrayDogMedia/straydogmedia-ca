@@ -1,0 +1,146 @@
+/* ============================================================
+   Stray Dog Media — Design Tokens
+   The single source of truth for the visual system.
+   Direction: evolve the mark — monochrome heritage (camera + paw)
+   leveled up with a warm off-white paper, deep ink, and one
+   confident signal accent. Change a value here, it changes
+   everywhere. Nothing below should hardcode a raw hex.
+   ============================================================ */
+
+:root {
+  /* ---- Brand palette --------------------------------------
+     Heritage is black & white. We keep that discipline and add
+     exactly ONE accent so the brand still reads as "SDM" but
+     gains energy. Neutrals are warm-tinted, not clinical grey. */
+  --sdm-ink:      #101014;   /* near-black — primary text / logo */
+  --sdm-paper:    #FAF8F3;   /* warm off-white — light canvas   */
+  --sdm-accent:   #FF4A1C;   /* signal orange — the one accent  */
+  --sdm-accent-ink:#B32E0E;  /* darker accent for text-on-paper */
+
+  /* Warm neutral ramp (tinted toward paper, not pure grey) */
+  --n-50:  #F5F3EE;
+  --n-100: #E9E6DF;
+  --n-200: #D7D3C9;
+  --n-300: #B9B4A8;
+  --n-400: #949085;
+  --n-500: #6E6A61;
+  --n-600: #4E4B44;
+  --n-700: #34322D;
+  --n-800: #201F1B;
+  --n-900: #141312;
+
+  /* ---- Semantic surface tokens (LIGHT is the default) ------
+     Components reference these, never the raw ramp above. */
+  --bg:          var(--sdm-paper);
+  --bg-elevated: #FFFFFF;
+  --bg-sunken:   var(--n-50);
+  --surface:     #FFFFFF;
+  --surface-2:   var(--n-50);
+  --border:      var(--n-200);
+  --border-strong: var(--n-300);
+
+  --text:        var(--sdm-ink);
+  --text-muted:  var(--n-600);
+  --text-subtle: var(--n-500);
+  --text-invert: var(--sdm-paper);
+
+  --accent:      var(--sdm-accent);
+  --accent-text: var(--sdm-accent-ink); /* accent readable on paper */
+  --accent-contrast: #FFFFFF;           /* text on an accent fill   */
+  --focus-ring:  color-mix(in srgb, var(--accent) 55%, transparent);
+
+  /* ---- Typography -----------------------------------------
+     Display: Space Grotesk — geometric, modern, a nod to the
+     blocky logo lettering. Body: Inter — clean and neutral.
+     Mono: Space Mono — for tags, kickers, meta. */
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "Space Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Fluid type scale (clamp: min, preferred, max) */
+  --step--1: clamp(0.83rem, 0.79rem + 0.20vw, 0.94rem);
+  --step-0:  clamp(1.00rem, 0.94rem + 0.30vw, 1.15rem);
+  --step-1:  clamp(1.25rem, 1.14rem + 0.55vw, 1.60rem);
+  --step-2:  clamp(1.56rem, 1.36rem + 1.00vw, 2.25rem);
+  --step-3:  clamp(1.95rem, 1.62rem + 1.65vw, 3.15rem);
+  --step-4:  clamp(2.44rem, 1.90rem + 2.70vw, 4.40rem);
+  --step-5:  clamp(3.05rem, 2.16rem + 4.45vw, 6.20rem);
+
+  --leading-tight: 1.04;
+  --leading-snug:  1.18;
+  --leading-body:  1.62;
+  --tracking-tight: -0.02em;
+  --tracking-wide:  0.16em; /* for mono kickers / eyebrows */
+  --weight-body: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* ---- Space scale (8px base, fluid at the top) ------------ */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: clamp(4rem, 2.5rem + 6vw, 8rem);
+  --space-3xl: clamp(6rem, 3rem + 10vw, 12rem);
+
+  /* ---- Layout --------------------------------------------- */
+  --container: 76rem;      /* ~1216px */
+  --container-narrow: 44rem;
+  --gutter: clamp(1.25rem, 0.6rem + 3vw, 3rem);
+
+  /* ---- Radius --------------------------------------------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* ---- Elevation ------------------------------------------ */
+  --shadow-sm: 0 1px 2px rgba(16,16,20,0.06), 0 1px 3px rgba(16,16,20,0.08);
+  --shadow-md: 0 4px 10px rgba(16,16,20,0.08), 0 12px 28px rgba(16,16,20,0.10);
+  --shadow-lg: 0 12px 24px rgba(16,16,20,0.12), 0 28px 64px rgba(16,16,20,0.16);
+  --shadow-accent: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent);
+
+  /* ---- Motion --------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur: 260ms;
+  --dur-slow: 520ms;
+}
+
+/* ---- DARK theme (heritage black, paper becomes ink) ------- */
+:root[data-theme="dark"] {
+  --bg:          #0D0D10;
+  --bg-elevated: #17171C;
+  --bg-sunken:   #090909;
+  --surface:     #17171C;
+  --surface-2:   #202027;
+  --border:      #2C2C33;
+  --border-strong: #3B3B44;
+
+  --text:        #F3F1EC;
+  --text-muted:  #A9A69D;
+  --text-subtle: #7C7A72;
+  --text-invert: #101014;
+
+  --accent-text: #FF6A42;      /* lighten accent for dark bg */
+  --accent-contrast: #101014;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.55);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.65);
+}
+
+/* Respect OS preference when the user hasn't chosen explicitly */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #0D0D10; --bg-elevated:#17171C; --bg-sunken:#090909;
+    --surface:#17171C; --surface-2:#202027; --border:#2C2C33; --border-strong:#3B3B44;
+    --text:#F3F1EC; --text-muted:#A9A69D; --text-subtle:#7C7A72; --text-invert:#101014;
+    --accent-text:#FF6A42; --accent-contrast:#101014;
+  }
+}
