@@ -18,7 +18,7 @@
   <link rel="icon" href="/assets/brand/favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="/assets/css/tokens.css">
@@ -59,22 +59,58 @@
   </div>
 </nav>
 
-<!-- ====== HERO ====== -->
-<header class="hero" id="hero">
+<!-- ====== HERO ======
+     .stage keeps the hero film-black in BOTH themes — the brand
+     lives in the dark. The mascot bleeds off the bottom-right;
+     it removes itself if the asset isn't in place yet. -->
+<header class="hero stage" id="hero">
+  <img class="hero-dog" src="/assets/brand/mascot-dog.png" alt="" aria-hidden="true"
+       onerror="this.remove()">
   <div class="container">
-    <p class="eyebrow gs-reveal" data-fr="Vidéo &amp; diffusion en direct · Haut-Saint-Laurent" data-en="Video &amp; livestreaming · Haut-Saint-Laurent">Vidéo &amp; diffusion en direct · Haut-Saint-Laurent</p>
-    <h1 class="hero-title gs-reveal"
-        data-fr="On filme votre histoire. <span class='accent'>On la diffuse à votre communauté.</span>"
-        data-en="We film your story. <span class='accent'>We stream it to your community.</span>">On filme votre histoire. <span class="accent">On la diffuse à votre communauté.</span></h1>
-    <p class="lead hero-sub gs-reveal"
-       data-fr="Stray Dog Media est le studio vidéo et de diffusion en direct du Haut-Saint-Laurent — pour les commerces, les OBNL, les municipalités et les événements locaux qui veulent être vus."
-       data-en="Stray Dog Media is the Haut-Saint-Laurent's video and livestream studio — for local businesses, non-profits, municipalities and community events that want to be seen.">Stray Dog Media est le studio vidéo et de diffusion en direct du Haut-Saint-Laurent — pour les commerces, les OBNL, les municipalités et les événements locaux qui veulent être vus.</p>
-    <div class="hero-cta gs-reveal">
-      <a href="/contact.html" class="btn btn-primary btn-lg" data-fr="Discuter de votre projet" data-en="Talk about your project">Discuter de votre projet</a>
-      <a href="#services" class="btn btn-ghost btn-lg" data-fr="Voir les services ↓" data-en="See services ↓">Voir les services ↓</a>
+    <div class="hero-inner">
+      <p class="eyebrow gs-reveal" data-fr="Vidéo &amp; diffusion en direct · Haut-Saint-Laurent" data-en="Video &amp; livestreaming · Haut-Saint-Laurent">Vidéo &amp; diffusion en direct · Haut-Saint-Laurent</p>
+      <h1 class="hero-title gs-reveal"
+          data-fr="On filme votre histoire. <span class='accent'>On la diffuse à votre communauté.</span>"
+          data-en="We film your story. <span class='accent'>We stream it to your community.</span>">On filme votre histoire. <span class="accent">On la diffuse à votre communauté.</span></h1>
+      <p class="hero-tag gs-reveal"><span class="slab">Capture. Create. Connect.</span></p>
+      <p class="lead hero-sub gs-reveal"
+         data-fr="Stray Dog Media est le studio vidéo et de diffusion en direct du Haut-Saint-Laurent — pour les commerces, les OBNL, les municipalités et les événements locaux qui veulent être vus."
+         data-en="Stray Dog Media is the Haut-Saint-Laurent's video and livestream studio — for local businesses, non-profits, municipalities and community events that want to be seen.">Stray Dog Media est le studio vidéo et de diffusion en direct du Haut-Saint-Laurent — pour les commerces, les OBNL, les municipalités et les événements locaux qui veulent être vus.</p>
+      <div class="hero-cta gs-reveal">
+        <a href="/contact.html" class="btn btn-primary btn-lg" data-fr="Discuter de votre projet" data-en="Talk about your project">Discuter de votre projet</a>
+        <a href="#services" class="btn btn-ghost btn-lg" data-fr="Voir les services ↓" data-en="See services ↓">Voir les services ↓</a>
+      </div>
     </div>
   </div>
 </header>
+
+<!-- ====== SPEC STRIP (capability facts, brand-art style) ====== -->
+<section class="stage" style="border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="spec-row gs-reveal" style="border-top:0">
+      <div class="spec">
+        <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M15 8v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2z"/><path d="m22 8-5 4 5 4V8z"/></svg></div>
+        <p class="spec-label" data-fr="Multicaméra" data-en="Multicam">Multicaméra</p>
+        <p class="spec-detail" data-fr="Plusieurs angles, son propre, montage sur place" data-en="Multiple angles, clean audio, cut on site">Plusieurs angles, son propre, montage sur place</p>
+      </div>
+      <div class="spec">
+        <div class="spec-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg></div>
+        <p class="spec-label" data-fr="En direct" data-en="Live">En direct</p>
+        <p class="spec-detail" data-fr="YouTube, Facebook, votre site — en même temps" data-en="YouTube, Facebook, your own site — at once">YouTube, Facebook, votre site — en même temps</p>
+      </div>
+      <div class="spec">
+        <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <p class="spec-label" data-fr="Bilingue" data-en="Bilingual">Bilingue</p>
+        <p class="spec-detail" data-fr="Tournage, animation et livrables en FR et EN" data-en="Shoot, hosting and deliverables in FR and EN">Tournage, animation et livrables en FR et EN</p>
+      </div>
+      <div class="spec">
+        <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <p class="spec-label" data-fr="D'ici" data-en="From here">D'ici</p>
+        <p class="spec-detail" data-fr="Basé dans le Haut-Saint-Laurent, pas de frais de route" data-en="Based in the Haut-Saint-Laurent, no travel fees">Basé dans le Haut-Saint-Laurent, pas de frais de route</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ====== SERVICES ====== -->
 <section class="section" id="services">
@@ -134,15 +170,15 @@
   </div>
 </section>
 
-<!-- ====== CTA ====== -->
-<section class="section">
-  <div class="container container-narrow" style="text-align:center">
-    <p class="eyebrow gs-reveal" style="justify-content:center" data-fr="On commence?" data-en="Shall we start?">On commence?</p>
-    <h2 class="gs-reveal" style="font-size:var(--step-4)" data-fr="Prêt à vous faire voir?" data-en="Ready to get seen?">Prêt à vous faire voir?</h2>
-    <p class="lead gs-reveal" style="margin:var(--space-sm) auto var(--space-lg)" data-fr="Parlez-nous de votre projet, de votre organisation ou de votre événement." data-en="Tell us about your project, organization or event.">Parlez-nous de votre projet, de votre organisation ou de votre événement.</p>
-    <div class="hero-cta gs-reveal" style="justify-content:center">
-      <a href="/contact.html" class="btn btn-primary btn-lg" data-fr="Nous écrire" data-en="Get in touch">Nous écrire</a>
+<!-- ====== CTA — the red band. One bark per page. ====== -->
+<section class="band-red">
+  <div class="container band-inner">
+    <div class="gs-reveal-left">
+      <p class="eyebrow" data-fr="On commence?" data-en="Shall we start?">On commence?</p>
+      <h2 style="font-size:var(--step-3);margin-top:var(--space-2xs)" data-fr="Prêt à vous faire voir?" data-en="Ready to get seen?">Prêt à vous faire voir?</h2>
+      <p class="lead" style="margin-top:var(--space-2xs);color:rgba(255,255,255,0.9)" data-fr="Parlez-nous de votre projet, de votre organisation ou de votre événement." data-en="Tell us about your project, organization or event.">Parlez-nous de votre projet, de votre organisation ou de votre événement.</p>
     </div>
+    <a href="/contact.html" class="btn btn-ghost btn-lg gs-reveal-right" data-fr="Nous écrire" data-en="Get in touch">Nous écrire</a>
   </div>
 </section>
 

@@ -47,13 +47,30 @@ submissions → straydogmedia.ca@gmail.com). Separate from strAI's `mjgpqgkz`.
 *Optional add-on:* a "book a discovery call" link (Calendly/Google Appointments) next to the
 form for higher-intent municipal/business leads. Say the word and I'll wire it in.
 
-## 4. Design decisions (locked)
+## 4. Design decisions
 
-- Direction: evolve the mark — see `design-system.html`.
-- Palette: Ink `#101014`, Paper `#FAF8F3`, Signal Orange `#FF4A1C`, warm neutral ramp.
-- Type: Space Grotesk · Inter · Space Mono. Dark default, light + dark.
+**v0.3 — "refined but dangerous" (2026-07-31).** Realigned to the YouTube brand art:
+black canvas, red bite, the dog mascot. See `design-system.html`. Not locked — this is
+the pass to react to before Design formalizes it.
+
+- Palette: Film Black `#0A0909`, Blood Red `#D72229`, Dried Blood `#7E0F14`,
+  Hot Red `#F04148` (red-as-text on black), Bone `#F4F1EC`. Warm charcoal ramp, never blue-grey.
+- Type: **Archivo** variable (display, caps, wght 800 / wdth 88%) · Inter (body) · Space Mono (kickers/meta).
+- Shape: near-square radii (1–4px). Pills survive on chips and toggles only.
+- Texture: fixed film-grain layer + vignette over every page; red bloom in the hero.
+- Signature moves: `.slab` (word knifed out on red) · `.spec-row` (four-up capability strip)
+  · `.band-red` (the closing bark) · `.stage` (forces film black in both themes).
+- Dark is the CSS default, not a JS afterthought. Light theme = bone paper, black masthead.
 - Sibling of strAI: shared class conventions, bilingual + theme toggles, GSAP reveals, cross-links.
+  Red now sits opposite strAI's cyan — the pair reads as a deliberate set.
 - Hosting target: static GitHub Pages, custom domain via `CNAME`.
+
+**Blocked on assets** (site codes around them gracefully in the meantime):
+
+- [ ] `assets/brand/mascot-dog.png` — transparent-background dog cutout. Drives the hero;
+      it removes itself if absent, so the hero right side is empty until it lands.
+- [ ] `assets/brand/logo-*.png` — the nav/footer mark is still the old monochrome camera-paw.
+- [ ] `og:image` — the YouTube banner art, cropped 1200×630, for link previews.
 
 ## 5. Next steps
 

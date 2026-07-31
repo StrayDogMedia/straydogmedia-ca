@@ -1,61 +1,83 @@
 /* ============================================================
    Stray Dog Media — Design Tokens
    The single source of truth for the visual system.
-   Direction: evolve the mark — monochrome heritage (camera + paw)
-   leveled up with a warm off-white paper, deep ink, and one
-   confident signal accent. Change a value here, it changes
+
+   Direction (v0.3 — "refined but dangerous"):
+   Black is the canvas, red is the bite. The brand lives in the
+   dark — film black, blood red, bone white, heavy poster type
+   and a fine grain over everything. Restraint everywhere so the
+   red actually lands. Change a value here, it changes
    everywhere. Nothing below should hardcode a raw hex.
    ============================================================ */
 
 :root {
   /* ---- Brand palette --------------------------------------
-     Heritage is black & white. We keep that discipline and add
-     exactly ONE accent so the brand still reads as "SDM" but
-     gains energy. Neutrals are warm-tinted, not clinical grey. */
-  --sdm-ink:      #101014;   /* near-black — primary text / logo */
-  --sdm-paper:    #FAF8F3;   /* warm off-white — light canvas   */
-  --sdm-accent:   #FF4A1C;   /* signal orange — the one accent  */
-  --sdm-accent-ink:#B32E0E;  /* darker accent for text-on-paper */
+     Three colours do the whole job: film black, blood red,
+     bone white. Red is used sparingly and always means
+     "look here" — a signal, never a decoration. */
+  --sdm-black:    #0A0909;   /* film black — the canvas         */
+  --sdm-red:      #D72229;   /* blood red — the signal          */
+  --sdm-red-deep: #7E0F14;   /* dried blood — depth & gradients */
+  --sdm-red-hot:  #F04148;   /* hot red — accent text on black  */
+  --sdm-red-ink:  #A50E14;   /* deep red — accent text on bone  */
+  --sdm-bone:     #F4F1EC;   /* bone white — light canvas       */
 
-  /* Warm neutral ramp (tinted toward paper, not pure grey) */
-  --n-50:  #F5F3EE;
-  --n-100: #E9E6DF;
-  --n-200: #D7D3C9;
-  --n-300: #B9B4A8;
-  --n-400: #949085;
-  --n-500: #6E6A61;
-  --n-600: #4E4B44;
-  --n-700: #34322D;
-  --n-800: #201F1B;
-  --n-900: #141312;
+  /* Neutral ramp: warm charcoal, tinted toward red, never blue.
+     50 = lightest (bone side) → 900 = darkest (black side). */
+  --n-50:  #EFEBE6;
+  --n-100: #E0DBD5;
+  --n-200: #C7C1BA;
+  --n-300: #A39C95;
+  --n-400: #7E7772;
+  --n-500: #5C5551;
+  --n-600: #423C39;
+  --n-700: #2C2726;
+  --n-800: #1C1918;
+  --n-900: #121010;
 
-  /* ---- Semantic surface tokens (LIGHT is the default) ------
+  /* ---- Semantic surface tokens (DARK is the default) -------
+     Black is the brand. Light is the alternate, not the base.
      Components reference these, never the raw ramp above. */
-  --bg:          var(--sdm-paper);
-  --bg-elevated: #FFFFFF;
-  --bg-sunken:   var(--n-50);
-  --surface:     #FFFFFF;
-  --surface-2:   var(--n-50);
-  --border:      var(--n-200);
-  --border-strong: var(--n-300);
+  --bg:            var(--sdm-black);
+  --bg-elevated:   #141111;
+  --bg-sunken:     #050404;
+  --surface:       #141111;
+  --surface-2:     #1C1918;
+  --border:        #272220;
+  --border-strong: #3A3331;
 
-  --text:        var(--sdm-ink);
-  --text-muted:  var(--n-600);
-  --text-subtle: var(--n-500);
-  --text-invert: var(--sdm-paper);
+  --text:        #F4F1EC;
+  --text-muted:  #A9A19B;
+  --text-subtle: #7B7370;
+  --text-invert: var(--sdm-black);
 
-  --accent:      var(--sdm-accent);
-  --accent-text: var(--sdm-accent-ink); /* accent readable on paper */
-  --accent-contrast: #FFFFFF;           /* text on an accent fill   */
-  --focus-ring:  color-mix(in srgb, var(--accent) 55%, transparent);
+  --accent:          var(--sdm-red);
+  --accent-deep:     var(--sdm-red-deep);
+  --accent-text:     var(--sdm-red-hot);  /* readable red on black */
+  --accent-contrast: #FFFFFF;             /* text on an accent fill */
+  --focus-ring:      color-mix(in srgb, var(--accent) 60%, transparent);
+
+  /* Signature gradients / atmosphere ------------------------- */
+  --grad-red:   linear-gradient(135deg, var(--sdm-red) 0%, var(--sdm-red-deep) 100%);
+  --grad-scrim: linear-gradient(to top, rgba(5,4,4,0.92) 0%, rgba(5,4,4,0.35) 45%, rgba(5,4,4,0) 72%);
+  --bloom:      radial-gradient(circle, color-mix(in srgb, var(--accent) 26%, transparent), transparent 65%);
+  --grain-opacity: 0.055;
+  --vignette-opacity: 0.34;
 
   /* ---- Typography -----------------------------------------
-     Display: Space Grotesk — geometric, modern, a nod to the
-     blocky logo lettering. Body: Inter — clean and neutral.
-     Mono: Space Mono — for tags, kickers, meta. */
-  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+     Display: Archivo (variable) — heavy, slightly condensed
+     poster grotesque. Set in caps at display sizes, it is the
+     single loudest brand signal on the page.
+     Body: Inter — quiet, legible, gets out of the way.
+     Mono: Space Mono — crew-slate energy for kickers and meta. */
+  --font-display: "Archivo", "Helvetica Neue", Impact, Arial, sans-serif;
   --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono:    "Space Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Display width/weight: heavy and a touch condensed.
+     Degrades to plain weight where the wdth axis is unsupported. */
+  --display-weight: 800;
+  --display-width:  88%;
 
   /* Fluid type scale (clamp: min, preferred, max) */
   --step--1: clamp(0.83rem, 0.79rem + 0.20vw, 0.94rem);
@@ -63,14 +85,17 @@
   --step-1:  clamp(1.25rem, 1.14rem + 0.55vw, 1.60rem);
   --step-2:  clamp(1.56rem, 1.36rem + 1.00vw, 2.25rem);
   --step-3:  clamp(1.95rem, 1.62rem + 1.65vw, 3.15rem);
-  --step-4:  clamp(2.44rem, 1.90rem + 2.70vw, 4.40rem);
-  --step-5:  clamp(3.05rem, 2.16rem + 4.45vw, 6.20rem);
+  /* Display steps are deliberately smaller than a sentence-case
+     scale would be: set in caps, they read ~30% larger. */
+  --step-4:  clamp(2.10rem, 1.70rem + 2.00vw, 3.40rem);
+  --step-5:  clamp(2.60rem, 2.00rem + 3.00vw, 4.60rem);
 
-  --leading-tight: 1.04;
-  --leading-snug:  1.18;
+  --leading-tight: 0.94;   /* tight — caps stack like a poster */
+  --leading-snug:  1.14;
   --leading-body:  1.62;
-  --tracking-tight: -0.02em;
-  --tracking-wide:  0.16em; /* for mono kickers / eyebrows */
+  --tracking-tight: -0.015em;
+  --tracking-display: -0.01em;
+  --tracking-wide:  0.18em; /* mono kickers / eyebrows */
   --weight-body: 400;
   --weight-medium: 500;
   --weight-bold: 700;
@@ -91,56 +116,60 @@
   --container-narrow: 44rem;
   --gutter: clamp(1.25rem, 0.6rem + 3vw, 3rem);
 
-  /* ---- Radius --------------------------------------------- */
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-pill: 999px;
+  /* ---- Radius ---------------------------------------------
+     Cut, not rounded. Sharp edges read as danger; keeping them
+     identical everywhere is what makes it refined. */
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-pill: 999px;   /* chips and toggles only */
 
-  /* ---- Elevation ------------------------------------------ */
-  --shadow-sm: 0 1px 2px rgba(16,16,20,0.06), 0 1px 3px rgba(16,16,20,0.08);
-  --shadow-md: 0 4px 10px rgba(16,16,20,0.08), 0 12px 28px rgba(16,16,20,0.10);
-  --shadow-lg: 0 12px 24px rgba(16,16,20,0.12), 0 28px 64px rgba(16,16,20,0.16);
-  --shadow-accent: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent);
+  /* ---- Elevation ------------------------------------------
+     On black, depth comes from a red edge-glow, not soft grey. */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.6);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.55);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.7);
+  --shadow-accent: 0 6px 26px color-mix(in srgb, var(--accent) 40%, transparent);
+  --glow-red: 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent),
+              0 10px 40px color-mix(in srgb, var(--accent) 22%, transparent);
 
-  /* ---- Motion --------------------------------------------- */
+  /* ---- Motion ---------------------------------------------
+     Fast and decisive. Nothing floats. */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-fast: 140ms;
-  --dur: 260ms;
-  --dur-slow: 520ms;
+  --dur-fast: 120ms;
+  --dur: 220ms;
+  --dur-slow: 460ms;
 }
 
-/* ---- DARK theme (heritage black, paper becomes ink) ------- */
-:root[data-theme="dark"] {
-  --bg:          #0D0D10;
-  --bg-elevated: #17171C;
-  --bg-sunken:   #090909;
-  --surface:     #17171C;
-  --surface-2:   #202027;
-  --border:      #2C2C33;
-  --border-strong: #3B3B44;
+/* ---- LIGHT theme (bone paper, ink type, same red) ---------
+   The alternate. Red stays the signal but darkens so it holds
+   contrast on paper; blacks become warm charcoal, not grey. */
+:root[data-theme="light"] {
+  --bg:            var(--sdm-bone);
+  --bg-elevated:   #FFFFFF;
+  --bg-sunken:     var(--n-50);
+  --surface:       #FFFFFF;
+  --surface-2:     var(--n-50);
+  --border:        var(--n-100);
+  --border-strong: var(--n-200);
 
-  --text:        #F3F1EC;
-  --text-muted:  #A9A69D;
-  --text-subtle: #7C7A72;
-  --text-invert: #101014;
+  --text:        #171413;
+  --text-muted:  var(--n-600);
+  --text-subtle: var(--n-500);
+  --text-invert: var(--sdm-bone);
 
-  --accent-text: #FF6A42;      /* lighten accent for dark bg */
-  --accent-contrast: #101014;
+  --accent-text: var(--sdm-red-ink);
+  --accent-contrast: #FFFFFF;
 
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.55);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.65);
-}
+  --grad-scrim: linear-gradient(to top, rgba(10,9,9,0.88) 0%, rgba(10,9,9,0.30) 45%, rgba(10,9,9,0) 72%);
+  --grain-opacity: 0.03;
+  --vignette-opacity: 0;
 
-/* Respect OS preference when the user hasn't chosen explicitly */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --bg: #0D0D10; --bg-elevated:#17171C; --bg-sunken:#090909;
-    --surface:#17171C; --surface-2:#202027; --border:#2C2C33; --border-strong:#3B3B44;
-    --text:#F3F1EC; --text-muted:#A9A69D; --text-subtle:#7C7A72; --text-invert:#101014;
-    --accent-text:#FF6A42; --accent-contrast:#101014;
-  }
+  --shadow-sm: 0 1px 2px rgba(20,16,16,0.07), 0 1px 3px rgba(20,16,16,0.08);
+  --shadow-md: 0 4px 10px rgba(20,16,16,0.08), 0 12px 28px rgba(20,16,16,0.10);
+  --shadow-lg: 0 12px 24px rgba(20,16,16,0.12), 0 28px 64px rgba(20,16,16,0.16);
+  --glow-red: 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent),
+              0 10px 30px color-mix(in srgb, var(--accent) 18%, transparent);
 }

@@ -9,7 +9,7 @@
   <link rel="icon" href="/assets/brand/favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
@@ -24,7 +24,7 @@
     .space-demo { display: flex; align-items: flex-end; gap: var(--space-sm); flex-wrap: wrap; }
     .space-demo div { background: var(--accent); border-radius: var(--radius-xs); }
     .space-demo span { display:block; font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-subtle); margin-top: 0.4rem; }
-    .principles { display:grid; grid-template-columns: repeat(auto-fit,minmax(15rem,1fr)); gap: var(--space-md); }
+    .principles { display:grid; grid-template-columns: repeat(auto-fit,minmax(19rem,1fr)); gap: var(--space-md); }
   </style>
 </head>
 <body>
@@ -54,13 +54,14 @@
 
 <header class="guide-head">
   <div class="container">
-    <p class="eyebrow">Design System · v0.2 · sibling of strAI.ca</p>
+    <p class="eyebrow">Design System · v0.3 · sibling of strAI.ca</p>
     <h1 style="font-size:var(--step-4)">Stray Dog Media</h1>
+    <p class="hero-tag"><span class="slab">Refined but dangerous.</span></p>
     <p class="lead" style="margin-top:var(--space-sm)">The visual foundation for the site. Driven by <code>assets/css/tokens.css</code> —
-      change a token, it updates across every page. Direction: <b>evolve the mark</b> — keep the monochrome
-      camera-and-paw heritage, add warmth and one signal accent. Built as the <b>twin of strAI.ca</b>:
-      same conventions (bilingual toggle, dark-default theme, <code>.eyebrow</code>, <code>.btn-primary</code>,
-      GSAP reveals), its own orange brand.</p>
+      change a token, it updates across every page. Direction: <b>black canvas, red bite</b> — film black,
+      blood red, bone white, heavy poster caps and a fine grain over everything, pulled from the brand art.
+      Built as the <b>twin of strAI.ca</b>: same conventions (bilingual toggle, dark-default theme,
+      <code>.eyebrow</code>, <code>.btn-primary</code>, GSAP reveals), its own black-and-red brand.</p>
     <div class="row" style="margin-top:var(--space-md)">
       <span class="chip">Capture</span><span class="chip">Create</span><span class="chip">Connect</span>
       <span class="chip chip-accent">Video &amp; livestream · Haut-Saint-Laurent</span>
@@ -73,9 +74,12 @@
     <p class="eyebrow">01 — Principles</p>
     <h2 class="guide-h">How it should feel</h2>
     <div class="principles">
-      <div class="card"><h3 class="card-title" style="font-size:var(--step-1)">Monochrome, then punch</h3><p class="card-body">Ink, paper and warm greys do the work. Orange appears rarely, and it means "look here."</p></div>
-      <div class="card"><h3 class="card-title" style="font-size:var(--step-1)">Cinematic &amp; dark</h3><p class="card-body">Dark by default — video and photography sit best on a deep canvas. Light theme is one tap away.</p></div>
-      <div class="card"><h3 class="card-title" style="font-size:var(--step-1)">Local, not corporate</h3><p class="card-body">Confident and modern, but warm, bilingual and human — a community storyteller.</p></div>
+      <div class="card"><h3 class="card-title" style="font-size:var(--step-1)">Black is the canvas</h3><p class="card-body">Film black by default, in both themes for hero moments. Video, photography and the dog all sit best in the dark.</p></div>
+      <div class="card"><h3 class="card-title" style="font-size:var(--step-1)">Red is the bite</h3><p class="card-body">One red, used rarely and never as decoration. When it appears — a slab, a band, a rule — it means <em>look here</em>.</p></div>
+      <div class="card"><h3 class="card-title" style="font-size:var(--step-1)">Cut, not rounded</h3><p class="card-body">Corners are 2–4px, motion is fast, nothing floats. Sharp edges read as danger; using them consistently is what keeps it refined.</p></div>
+      <div class="card"><h3 class="card-title" style="font-size:var(--step-1)">Grain over everything</h3><p class="card-body">A fixed noise layer and a vignette stop the black from reading as flat CSS black. Same trick the brand art uses.</p></div>
+      <div class="card"><h3 class="card-title" style="font-size:var(--step-1)">Loud once, quiet after</h3><p class="card-body">One red band and one slab per page, maximum. The restraint everywhere else is what makes the bark land.</p></div>
+      <div class="card"><h3 class="card-title" style="font-size:var(--step-1)">Local, not corporate</h3><p class="card-body">Hard-edged and confident, but bilingual and human — a community storyteller with teeth.</p></div>
     </div>
   </div>
 </section>
@@ -85,16 +89,24 @@
     <p class="eyebrow">02 — Color</p>
     <h2 class="guide-h">Palette</h2>
     <div class="swatches">
-      <div class="swatch"><div class="swatch-chip" style="background:var(--sdm-ink)"></div><div class="swatch-meta"><b>Ink</b><span>--sdm-ink · #101014</span></div></div>
-      <div class="swatch"><div class="swatch-chip" style="background:var(--sdm-paper)"></div><div class="swatch-meta"><b>Paper</b><span>--sdm-paper · #FAF8F3</span></div></div>
-      <div class="swatch"><div class="swatch-chip" style="background:var(--sdm-accent)"></div><div class="swatch-meta"><b>Signal Orange</b><span>--sdm-accent · #FF4A1C</span></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background:var(--sdm-black)"></div><div class="swatch-meta"><b>Film Black</b><span>--sdm-black · #0A0909</span></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background:var(--sdm-red)"></div><div class="swatch-meta"><b>Blood Red</b><span>--sdm-red · #D72229</span></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background:var(--sdm-red-deep)"></div><div class="swatch-meta"><b>Dried Blood</b><span>--sdm-red-deep · #7E0F14</span></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background:var(--sdm-red-hot)"></div><div class="swatch-meta"><b>Hot Red</b><span>--sdm-red-hot · #F04148</span></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background:var(--sdm-bone)"></div><div class="swatch-meta"><b>Bone</b><span>--sdm-bone · #F4F1EC</span></div></div>
       <div class="swatch"><div class="swatch-chip" style="background:var(--n-100)"></div><div class="swatch-meta"><b>Neutral 100</b><span>--n-100</span></div></div>
       <div class="swatch"><div class="swatch-chip" style="background:var(--n-300)"></div><div class="swatch-meta"><b>Neutral 300</b><span>--n-300</span></div></div>
       <div class="swatch"><div class="swatch-chip" style="background:var(--n-500)"></div><div class="swatch-meta"><b>Neutral 500</b><span>--n-500</span></div></div>
       <div class="swatch"><div class="swatch-chip" style="background:var(--n-700)"></div><div class="swatch-meta"><b>Neutral 700</b><span>--n-700</span></div></div>
       <div class="swatch"><div class="swatch-chip" style="background:var(--n-900)"></div><div class="swatch-meta"><b>Neutral 900</b><span>--n-900</span></div></div>
     </div>
-    <p class="muted" style="margin-top:var(--space-md);font-size:var(--step--1)">Semantic tokens (<code>--bg</code>, <code>--surface</code>, <code>--text</code>, <code>--accent</code>…) map onto these and flip automatically between light and dark. Components only reference semantic tokens. Orange pairs deliberately with strAI's cyan — the two sites read as a matched set.</p>
+    <p class="muted" style="margin-top:var(--space-md);font-size:var(--step--1)">Semantic tokens (<code>--bg</code>, <code>--surface</code>, <code>--text</code>, <code>--accent</code>…) map onto these and flip automatically between light and dark. Components only reference semantic tokens. Red pairs deliberately against strAI's cyan — the two sites read as a matched set, opposite ends of the wheel.</p>
+    <h3 style="font-size:var(--step-1);margin:var(--space-lg) 0 var(--space-sm)">Contrast rules</h3>
+    <ul class="muted" style="font-size:var(--step--1);max-width:62ch">
+      <li><b>Blood Red</b> is a <em>fill</em> colour. White on it clears 5:1 — safe for buttons, slabs and bands.</li>
+      <li><b>Hot Red</b> is red-as-<em>text</em> on black (5:1). Never use Blood Red for body-size text on black.</li>
+      <li><b>Deep Red</b> (<code>--sdm-red-ink</code>) is red-as-text on bone (7:1). The light theme swaps to it automatically.</li>
+    </ul>
   </div>
 </section>
 
@@ -103,13 +115,15 @@
     <p class="eyebrow">03 — Typography</p>
     <h2 class="guide-h">Type scale</h2>
     <div class="row" style="margin-bottom:var(--space-md);gap:var(--space-lg)">
-      <div><span class="eyebrow">Display</span><p style="font-family:var(--font-display);font-size:var(--step-2);font-weight:700">Space Grotesk</p></div>
+      <div><span class="eyebrow">Display</span><p style="font-family:var(--font-display);font-size:var(--step-2);font-weight:800;font-stretch:var(--display-width);text-transform:uppercase">Archivo</p></div>
       <div><span class="eyebrow">Body</span><p style="font-family:var(--font-body);font-size:var(--step-2)">Inter</p></div>
       <div><span class="eyebrow">Mono / eyebrow</span><p style="font-family:var(--font-mono);font-size:var(--step-1)">Space Mono</p></div>
     </div>
-    <div class="type-row"><span class="meta">step-5 / h1</span><span style="font-family:var(--font-display);font-weight:700;font-size:var(--step-5);line-height:1">Capture.</span></div>
-    <div class="type-row"><span class="meta">step-4 / h2</span><span style="font-family:var(--font-display);font-weight:700;font-size:var(--step-4)">Create the story</span></div>
+    <p class="muted" style="font-size:var(--step--1);max-width:62ch;margin-bottom:var(--space-md)">Display sizes are set in <b>caps, weight 800, width 88%</b> — heavy poster type, packed tight (line-height 0.94). h3/h4 stay sentence case, so the shouting stays rationed.</p>
+    <div class="type-row"><span class="meta">step-5 / h1</span><span style="font-family:var(--font-display);font-weight:800;font-stretch:var(--display-width);text-transform:uppercase;font-size:var(--step-5);line-height:0.94">Capture.</span></div>
+    <div class="type-row"><span class="meta">step-4 / h2</span><span style="font-family:var(--font-display);font-weight:800;font-stretch:var(--display-width);text-transform:uppercase;font-size:var(--step-4);line-height:0.94">Create the story</span></div>
     <div class="type-row"><span class="meta">step-3 / h3</span><span style="font-family:var(--font-display);font-weight:700;font-size:var(--step-3)">Connect with your people</span></div>
+    <div class="type-row"><span class="meta">.slab</span><span class="hero-tag" style="margin:0"><span class="slab">Live and unleashed.</span></span></div>
     <div class="type-row"><span class="meta">step-1 / lead</span><span style="font-size:var(--step-1);color:var(--text-muted)">Video &amp; livestream that get the Haut-Saint-Laurent noticed.</span></div>
     <div class="type-row"><span class="meta">step-0 / body</span><span style="font-size:var(--step-0)">Body copy sits at a 1.62 line height with a 62-character measure for easy reading.</span></div>
     <div class="type-row"><span class="meta">mono / eyebrow</span><span class="eyebrow">Capture · Create · Connect</span></div>
@@ -129,11 +143,12 @@
       <div><div style="width:var(--space-xl);height:var(--space-xl)"></div><span>xl</span></div>
     </div>
     <h3 style="font-size:var(--step-1);margin:var(--space-lg) 0 var(--space-sm)">Radius &amp; elevation</h3>
+    <p class="muted" style="font-size:var(--step--1);max-width:62ch;margin-bottom:var(--space-sm)">Radii run 1&nbsp;/&nbsp;2&nbsp;/&nbsp;3&nbsp;/&nbsp;4px — near-square. The pill radius survives for chips and toggles only. On black, depth comes from a red edge-glow (<code>--glow-red</code>), not soft grey shadow.</p>
     <div class="row">
       <div style="width:6rem;height:4rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm)"></div>
       <div style="width:6rem;height:4rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md)"></div>
       <div style="width:6rem;height:4rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)"></div>
-      <div style="width:6rem;height:4rem;background:var(--accent);border-radius:var(--radius-pill);box-shadow:var(--shadow-accent)"></div>
+      <div style="width:6rem;height:4rem;background:var(--grad-red);border-radius:var(--radius-md);box-shadow:var(--glow-red)"></div>
     </div>
   </div>
 </section>
@@ -174,10 +189,53 @@
   </div>
 </section>
 
+<section class="guide-section">
+  <div class="container">
+    <p class="eyebrow">06 — Signature elements</p>
+    <h2 class="guide-h">The three brand moves</h2>
+    <p class="muted" style="font-size:var(--step--1);max-width:62ch;margin-bottom:var(--space-md)">Everything above is the grammar. These three are the accent — pulled straight from the brand art, and the fastest way to make any new page read as SDM.</p>
+
+    <h3 style="font-size:var(--step-1);margin-bottom:var(--space-sm)">1 · The slab <code>.slab</code></h3>
+    <p class="hero-tag" style="margin-bottom:var(--space-lg)"><span class="slab">Capture. Create. Connect.</span></p>
+
+    <h3 style="font-size:var(--step-1);margin-bottom:var(--space-sm)">2 · The spec row <code>.spec-row</code></h3>
+    <div class="spec-row" style="margin-bottom:var(--space-lg)">
+      <div class="spec">
+        <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M15 8v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2z"/><path d="m22 8-5 4 5 4V8z"/></svg></div>
+        <p class="spec-label">Multicam</p><p class="spec-detail">Multiple angles, clean audio</p>
+      </div>
+      <div class="spec">
+        <div class="spec-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg></div>
+        <p class="spec-label">Live</p><p class="spec-detail">YouTube, Facebook, your site</p>
+      </div>
+      <div class="spec">
+        <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <p class="spec-label">Bilingual</p><p class="spec-detail">FR and EN, shoot to delivery</p>
+      </div>
+      <div class="spec">
+        <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <p class="spec-label">From here</p><p class="spec-detail">Haut-Saint-Laurent based</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:var(--step-1);margin-bottom:var(--space-sm)">3 · The red band <code>.band-red</code></h3>
+    <p class="muted" style="font-size:var(--step--1);max-width:62ch;margin-bottom:var(--space-sm)">The bark. Once per page, at the closing CTA.</p>
+  </div>
+  <div class="band-red">
+    <div class="container band-inner">
+      <div>
+        <p class="eyebrow">Shall we start?</p>
+        <h2 style="font-size:var(--step-3);margin-top:var(--space-2xs)">Ready to get seen?</h2>
+      </div>
+      <a href="/contact.html" class="btn btn-ghost btn-lg">Get in touch</a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container footer-row">
     <span class="footer-logo"><img src="/assets/brand/logo-camera-paw-192.png" alt="">Stray Dog Media</span>
-    <span class="muted" style="font-family:var(--font-mono);font-size:0.75rem">Design system v0.2 · Capture · Create · Connect</span>
+    <span class="muted" style="font-family:var(--font-mono);font-size:0.75rem">Design system v0.3 · Refined but dangerous</span>
   </div>
 </footer>
 
