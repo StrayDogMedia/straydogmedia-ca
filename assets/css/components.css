@@ -232,16 +232,18 @@
 }
 
 
-/* The mascot. Bleeds off the bottom-right, never boxed in.
+/* The mascot. Stands on the hero's bottom edge, right of the copy.
+   The asset is a tight portrait crop (~449x718), so size it by HEIGHT
+   and let width follow — sizing by width leaves it floating and small.
    Hidden below 60rem so it never crowds the headline. */
 .hero-dog {
-  position: absolute; z-index: 1; right: 2%; bottom: 0;
-  width: min(42vw, 34rem); height: auto;
-  object-fit: contain; object-position: bottom right;
-  filter: drop-shadow(0 0 60px color-mix(in srgb, var(--accent) 45%, transparent))
-          contrast(1.05) saturate(1.05);
-  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
-          mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  position: absolute; z-index: 1; right: 4%; bottom: 0;
+  height: clamp(20rem, 42vw, 34rem); width: auto;
+  object-fit: contain; object-position: bottom center;
+  /* Red rim-light so a warm brown dog reads against film black. */
+  filter: drop-shadow(0 0 70px color-mix(in srgb, var(--accent) 55%, transparent))
+          drop-shadow(0 0 6px rgba(0,0,0,0.8))
+          contrast(1.06) saturate(1.06);
   pointer-events: none; user-select: none;
 }
 @media (max-width: 60rem) {
