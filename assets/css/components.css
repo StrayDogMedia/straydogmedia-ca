@@ -149,6 +149,12 @@
 .btn-solid:hover { background: var(--accent); color: var(--accent-contrast); }
 .btn-ghost { background: transparent; color: var(--text); border-color: var(--border-strong); }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent-contrast); background: var(--accent); }
+/* nowrap keeps buttons crisp, but a long label on a narrow screen would
+   otherwise push the whole page wider than the viewport. Let them wrap. */
+@media (max-width: 34rem) {
+  .btn { white-space: normal; text-align: center; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
+}
 .btn-sm { font-size: var(--step--1); padding: 0.7em 1.15em; }
 .btn-lg { font-size: var(--step-1); padding: 1.05em 1.9em; }
 
@@ -432,3 +438,185 @@ footer a:hover { color: var(--accent-text); }
 .swatch-meta { padding: 0.7rem 0.85rem; font-family: var(--font-mono); font-size: 0.78rem; background: var(--surface); }
 .swatch-meta b { display: block; font-weight: 700; margin-bottom: 0.15rem; letter-spacing: 0.02em; }
 .swatch-meta span { color: var(--text-subtle); }
+
+/* ============================================================
+   v0.4 — "the record"
+   Components for the repositioning: the site is the front door
+   to an ongoing video archive of the Haut-Saint-Laurent, not a
+   services brochure. Everything below is built on the same
+   tokens; nothing here introduces a new colour.
+   ============================================================ */
+
+/* ---- Reel hero ---------------------------------------------
+   The showreel plays behind the name. Text legibility comes
+   first: the veil is deliberately heavy, because a hero nobody
+   can read is just a screensaver. */
+.hero--reel {
+  display: flex; align-items: center;
+  min-height: min(88vh, 50rem);
+  padding-block: var(--space-2xl);
+}
+.hero-video {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  /* Desaturated and dimmed so the red brand marks stay the
+     loudest thing on screen, not the footage. */
+  filter: grayscale(0.3) contrast(1.12) brightness(0.62);
+}
+.hero-veil {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    linear-gradient(to right, rgba(10,9,9,0.94) 0%, rgba(10,9,9,0.78) 46%, rgba(10,9,9,0.35) 100%),
+    linear-gradient(to top, rgba(10,9,9,0.95) 0%, rgba(10,9,9,0.15) 45%);
+}
+/* On phones the copy spans the full width, so the left-to-right veil
+   above leaves the right side bright under the text. Go vertical and
+   darker: legibility beats seeing more of the footage. */
+@media (max-width: 60rem) {
+  .hero-veil {
+    background: linear-gradient(to bottom,
+      rgba(10,9,9,0.88) 0%, rgba(10,9,9,0.74) 38%, rgba(10,9,9,0.96) 100%);
+  }
+  .hero--reel { min-height: min(76vh, 38rem); }
+}
+
+/* The reel hero already carries the footage — the accent bloom
+   would only muddy it. */
+.hero--reel::before { display: none; }
+
+/* ---- Wordmark ----------------------------------------------
+   The name, finally at full size. This is the single largest
+   type on the site and nothing else may compete with it. */
+.wordmark-xl {
+  font-family: var(--font-display);
+  font-weight: 900; font-stretch: var(--display-width);
+  text-transform: uppercase;
+  font-size: clamp(2.05rem, 8.4vw, 7rem);
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-wrap: balance;
+}
+.wordmark-xl .accent { color: var(--accent-text); }
+
+/* ---- Stat strip --------------------------------------------
+   The proof. Mono numerals so the digits align in a row and the
+   count-up animation doesn't reflow the layout as it ticks. */
+.stat-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--space-md) var(--space-lg);
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-weight: 900; font-stretch: var(--display-width);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1; color: var(--accent-text);
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-family: var(--font-mono); font-size: 0.74rem;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-muted); margin-top: 0.5em; max-width: 20ch;
+}
+
+/* ---- Latest from the channel -------------------------------
+   Facade cards: a thumbnail and a play button, nothing more.
+   The real YouTube player is only injected on click, so the
+   page stays fast and sets no YouTube cookies for visitors who
+   never press play. See renderLatestVideos() in main.js. */
+.yt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: var(--space-md); }
+.yt-card {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); overflow: hidden;
+  text-decoration: none; color: var(--text); cursor: pointer;
+  transition: border-color var(--dur), transform var(--dur) var(--ease-out);
+}
+.yt-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+.yt-card__frame { position: relative; aspect-ratio: 16 / 9; background: var(--bg-sunken); }
+.yt-card__thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+.yt-card__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.yt-card__play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 3.2rem; height: 3.2rem; border-radius: 50%; display: grid; place-items: center;
+  background: var(--accent); color: #fff; box-shadow: var(--shadow-accent);
+  transition: transform var(--dur) var(--ease-out);
+}
+.yt-card:hover .yt-card__play { transform: translate(-50%,-50%) scale(1.08); }
+.yt-card__play svg { width: 1.2rem; height: 1.2rem; fill: currentColor; margin-left: 2px; }
+.yt-card__body { padding: var(--space-sm) var(--space-sm) var(--space-md); }
+.yt-card__date {
+  font-family: var(--font-mono); font-size: 0.68rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-subtle);
+}
+.yt-card__title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--step-0); line-height: 1.25; margin-top: 0.35em;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* Subscribe button. Deliberately YouTube's own red, not the SDM
+   red — on a platform affordance, recognition beats brand purity. */
+.btn-yt { background: #FF0000; color: #fff; border-color: #FF0000; }
+.btn-yt:hover { background: #cc0000; border-color: #cc0000; color: #fff; }
+.btn-yt svg { width: 1.3em; height: 1.3em; fill: currentColor; }
+
+/* ---- Marquee -----------------------------------------------
+   A slow ribbon of everything on the record. Two identical
+   tracks side by side; translating one full track width and
+   looping makes the seam invisible. */
+.marquee {
+  overflow: hidden; border-block: 1px solid var(--border);
+  padding-block: var(--space-sm); background: var(--bg-sunken);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track { display: flex; width: max-content; animation: marquee 46s linear infinite; }
+.marquee__group { display: flex; gap: var(--space-lg); padding-right: var(--space-lg); flex: none; }
+.marquee__item {
+  font-family: var(--font-display); font-weight: 800; font-stretch: var(--display-width);
+  text-transform: uppercase; font-size: var(--step-1);
+  color: var(--text-subtle); white-space: nowrap;
+}
+.marquee__item::after { content: "◆"; color: var(--accent); margin-left: var(--space-lg); font-size: 0.5em; vertical-align: middle; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+}
+
+/* ---- Archive categories ------------------------------------ */
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: var(--space-sm); }
+.cat {
+  display: flex; align-items: baseline; gap: 0.6em;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border); border-radius: var(--radius-md);
+  background: var(--surface); text-decoration: none; color: var(--text);
+  transition: border-color var(--dur-fast), background var(--dur-fast), transform var(--dur-fast) var(--ease-out);
+}
+.cat:hover { border-color: var(--accent); background: var(--bg-elevated); color: var(--text); transform: translateX(3px); }
+.cat__name {
+  font-family: var(--font-display); font-weight: 800; font-stretch: var(--display-width);
+  text-transform: uppercase; font-size: var(--step-0);
+}
+.cat__count { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-subtle); margin-left: auto; }
+
+/* ---- Invite steps ------------------------------------------
+   Numbered, deliberately short. The whole point is that asking
+   feels like no work at all. */
+.invite-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--space-lg); counter-reset: step; }
+.step { counter-increment: step; position: relative; padding-top: var(--space-md); border-top: 2px solid var(--border); }
+.step::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute; top: calc(-1 * var(--space-md)); left: 0;
+  font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; color: var(--accent);
+}
+.step h3 { font-size: var(--step-1); }
+.step p { color: var(--text-muted); margin-top: var(--space-2xs); font-size: var(--step--1); }
+
+/* ---- Section head helper ----------------------------------- */
+.section-head { margin-bottom: var(--space-lg); }
+.section-head h2 { font-size: var(--step-3); margin-top: var(--space-2xs); }
+.section-head .lead { margin-top: var(--space-sm); }

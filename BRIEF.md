@@ -8,13 +8,31 @@ studio for the Haut-Saint-Laurent**, built as the **twin of strAI.ca**.
 
 ## 1. Positioning (current)
 
-- **What:** video & livestream studio of the Haut-Saint-Laurent (MRC), Québec.
-- **For:** local businesses · non-profits (OBNL) · municipalities · community events · sports/clubs.
-- **Services:** ① Videography ② Livestreaming ③ Event coverage.
-- **Tagline:** Capture. Create. Connect.
-- **Twin:** strAI.ca (AI tools for Quebec non-profits) — same team/region, cross-linked both ways.
-- **Bilingual:** FR default, EN toggle.
-- **Contact on file:** straydogmedia.ca@gmail.com · 514-618-6185 (shared with strAI).
+**Repositioned again 2026-07-31 (v0.4).** From "video & livestream studio for hire" to
+**the video record of the Haut-Saint-Laurent** — an ongoing, publicly free archive of
+community life, with the YouTube channel as the product and commercial work downstream.
+
+- **What:** the authoritative video record of community life in the Haut-Saint-Laurent.
+- **Why the change:** much of Stray's work is pro-bono. Framing the site as a services
+  brochure undersold the real asset — the archive — and made "hire us" the only way in.
+- **The ask changed:** primary CTA is now *invite us to your event*, not *talk about
+  your project*. Municipalities and organizers should feel they can ask before they
+  worry about budget. Pricing and packages live on `services.html` only.
+- **Channel:** `@StrayDogMedia_ca` · channel_id `UCiURtAT2FjCeqf2WbwkcJSA`.
+- **For:** event organizers · municipalities · OBNL · clubs · local businesses.
+- **Tagline:** Capture. Create. Connect. / "Live and unleashed." (channel voice).
+- **Twin:** strAI.ca — same team/region, cross-linked both ways.
+- **Bilingual:** FR default, EN toggle. Every string needs a `data-fr`/`data-en` pair.
+- **Contact on file:** straydogmedia.ca@gmail.com · 514-618-6185.
+
+### YouTube integration (how it stays current)
+
+YouTube's channel RSS feed sends **no CORS header**, so the browser cannot read it.
+`.github/workflows/youtube-latest.yml` runs daily (and on demand), fetches the feed
+server-side via `.github/scripts/fetch_youtube.py`, and commits
+`assets/data/latest-videos.json`. The page reads that file same-origin. No API key,
+no third-party service. If the fetch fails the script exits without writing, so a
+stale list can never be replaced by an empty one.
 
 ## 2. Content still to finalize ⚠️
 
@@ -71,6 +89,11 @@ the pass to react to before Design formalizes it.
       it removes itself if absent, so the hero right side is empty until it lands.
 - [ ] `assets/brand/logo-*.png` — the nav/footer mark is still the old monochrome camera-paw.
 - [ ] `og:image` — the YouTube banner art, cropped 1200×630, for link previews.
+- [ ] **Real figures for the `.stat-strip`** — events documented, hours streamed, years
+      active, communities covered. The component is built and demoed in
+      `design-system.html`, but it is **commented out of `index.html`** so no invented
+      number ships. One message from Stray puts it live.
+- [ ] Confirm the archive categories and whether YouTube playlists exist to link each to.
 
 ## 5. Next steps
 

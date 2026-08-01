@@ -196,3 +196,152 @@ if (form) {
 
 /* Apply stored/default language once (script is deferred). */
 applyLang(lang);
+
+/* ============================================================
+   v0.4 — "the record"
+   Hero showreel, the YouTube channel grid, and count-up stats.
+   Everything below is guarded so it stays inert on pages that
+   don't use it.
+   ============================================================ */
+
+/* --- Hero showreel -------------------------------------------
+   The <video> ships without an autoplay attribute so the poster
+   frame is what everyone sees by default. We only start playback
+   when the visitor hasn't asked for reduced motion — and we pause
+   it once it scrolls out of view, because a hero looping silently
+   off-screen is pure battery burn on a phone. */
+(function () {
+  var vid = document.getElementById('hero-video');
+  if (!vid) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  vid.preload = 'auto';
+  var start = function () { var p = vid.play(); if (p && p.catch) p.catch(function () {}); };
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.isIntersecting ? start() : vid.pause(); });
+    }, { threshold: 0.1 }).observe(vid);
+  } else {
+    start();
+  }
+})();
+
+/* --- Latest from the channel ---------------------------------
+   Reads /assets/data/latest-videos.json, which a daily GitHub
+   Action regenerates from the channel's RSS feed. We can't read
+   that feed here directly: YouTube serves it without an
+   Access-Control-Allow-Origin header, so the browser blocks it.
+
+   Each card is a facade — thumbnail plus play button, wrapped in a
+   real link to the video. The actual YouTube player is only
+   injected on click, which keeps the page fast and means visitors
+   who never press play are never handed YouTube's cookies. */
+(function () {
+  var grid = document.getElementById('yt-grid');
+  if (!grid) return;
+
+  var PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    var d = new Date(iso + 'T00:00:00');
+    if (isNaN(d)) return '';
+    return d.toLocaleDateString(lang === 'fr' ? 'fr-CA' : 'en-CA',
+      { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  function card(v) {
+    var a = document.createElement('a');
+    a.className = 'yt-card';
+    a.href = 'https://youtu.be/' + v.id;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.innerHTML =
+      '<div class="yt-card__frame">' +
+        '<img class="yt-card__thumb" loading="lazy" alt="" src="' + v.thumb + '"' +
+          (v.thumbFallback ? ' data-fallback="' + v.thumbFallback + '"' : '') + '>' +
+        '<span class="yt-card__play">' + PLAY_SVG + '</span>' +
+      '</div>' +
+      '<div class="yt-card__body">' +
+        '<p class="yt-card__date">' + formatDate(v.published) + '</p>' +
+        '<p class="yt-card__title"></p>' +
+      '</div>';
+    // Titles come from the feed — set as text, never as HTML.
+    a.querySelector('.yt-card__title').textContent = v.title;
+
+    // hq720 doesn't exist for every upload; drop to the 4:3 hqdefault if so.
+    var img = a.querySelector('.yt-card__thumb');
+    img.addEventListener('error', function onErr() {
+      img.removeEventListener('error', onErr);
+      if (img.dataset.fallback) img.src = img.dataset.fallback;
+    });
+
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let "open in new tab" work
+      e.preventDefault();
+      var frame = a.querySelector('.yt-card__frame');
+      frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + v.id +
+        '?autoplay=1&rel=0" title="" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      frame.querySelector('iframe').title = v.title;
+    });
+    return a;
+  }
+
+  fetch('/assets/data/latest-videos.json', { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      var vids = (data && data.videos) || [];
+      if (!vids.length) throw new Error('empty feed');
+      grid.removeAttribute('data-loading');
+      grid.innerHTML = '';
+      vids.forEach(function (v) { grid.appendChild(card(v)); });
+      applyLang(lang);  // cards are built after the initial pass
+    })
+    .catch(function () {
+      // Never leave an empty hole — send people to the channel instead.
+      grid.removeAttribute('data-loading');
+      grid.innerHTML = '';
+      var p = document.createElement('p');
+      p.className = 'muted';
+      p.setAttribute('data-fr', 'La liste des vidéos récentes n\'a pas pu être chargée. Tout est sur la chaîne ↗');
+      p.setAttribute('data-en', 'Couldn\'t load the recent uploads. Everything is on the channel ↗');
+      p.textContent = p.getAttribute('data-' + lang);
+      grid.appendChild(p);
+    });
+})();
+
+/* --- Count-up stats ------------------------------------------
+   Drives .stat-num[data-count]. Uses tabular numerals in CSS so
+   the layout doesn't jitter while the digits tick over. */
+(function () {
+  var nums = document.querySelectorAll('.stat-num[data-count]');
+  if (!nums.length) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function run(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (reduce) { el.textContent = target + suffix; return; }
+    var t0 = null, dur = 1400;
+    function tick(now) {
+      if (t0 === null) t0 = now;
+      var p = Math.min((now - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    nums.forEach(function (n) { io.observe(n); });
+  } else {
+    nums.forEach(run);
+  }
+})();

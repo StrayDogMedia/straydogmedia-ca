@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr" data-lang="fr"
-      data-title-fr="Stray Dog Media — Vidéo & diffusion en direct · Haut-Saint-Laurent"
-      data-title-en="Stray Dog Media — Video & livestreaming · Haut-Saint-Laurent">
+      data-title-fr="Stray Dog Media — Le registre vidéo du Haut-Saint-Laurent"
+      data-title-en="Stray Dog Media — The video record of the Haut-Saint-Laurent">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('sdm-theme')||'dark')}catch(e){}</script>
-  <title>Stray Dog Media — Vidéo & diffusion en direct · Haut-Saint-Laurent</title>
+  <title>Stray Dog Media — Le registre vidéo du Haut-Saint-Laurent</title>
   <meta name="description" id="meta-desc"
-    data-desc-fr="Stray Dog Media est le studio vidéo et de diffusion en direct du Haut-Saint-Laurent : commerces, OBNL, municipalités et événements locaux mis en valeur et diffusés à leur communauté."
-    data-desc-en="Stray Dog Media is the Haut-Saint-Laurent's video and livestream studio: local businesses, non-profits, municipalities and community events promoted and streamed to their community."
-    content="Stray Dog Media est le studio vidéo et de diffusion en direct du Haut-Saint-Laurent : commerces, OBNL, municipalités et événements locaux mis en valeur et diffusés à leur communauté.">
-  <meta property="og:title" content="Stray Dog Media — Capture. Create. Connect.">
-  <meta property="og:description" content="Video & livestreaming for the Haut-Saint-Laurent — businesses, non-profits, municipalities and local events.">
+    data-desc-fr="Stray Dog Media documente la vie de la région : rodéos, derbies, défilés, tournois, assemblées. Tout se retrouve en ligne, gratuitement, sur notre chaîne YouTube."
+    data-desc-en="Stray Dog Media documents life in the Haut-Saint-Laurent: rodeos, derbies, parades, tournaments, assemblies. It all goes online, free, on our YouTube channel."
+    content="Stray Dog Media documente la vie de la région : rodéos, derbies, défilés, tournois, assemblées. Tout se retrouve en ligne, gratuitement, sur notre chaîne YouTube.">
+  <meta property="og:title" content="Stray Dog Media — Live and unleashed.">
+  <meta property="og:description" content="The video record of the Haut-Saint-Laurent. Rodeos, derbies, parades, tournaments and assemblies — all of it online, free.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://straydogmedia.ca">
   <link rel="icon" href="/assets/brand/favicon-32.png">
@@ -37,8 +37,10 @@
       <span class="wordmark">Stray Dog <b>Media</b></span>
     </a>
     <div class="nav-links">
+      <a href="#latest" data-fr="La chaîne" data-en="The channel">La chaîne</a>
+      <a href="/work.html" data-fr="Le registre" data-en="The record">Le registre</a>
+      <a href="#invite" data-fr="Nous inviter" data-en="Invite us">Nous inviter</a>
       <a href="/services.html" data-fr="Services" data-en="Services">Services</a>
-      <a href="/work.html" data-fr="Réalisations" data-en="Work">Réalisations</a>
       <a href="/about.html" data-fr="À propos" data-en="About">À propos</a>
       <a href="/contact.html" data-fr="Contact" data-en="Contact">Contact</a>
     </div>
@@ -52,109 +54,165 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobile-menu">
+    <a href="#latest" data-fr="La chaîne" data-en="The channel">La chaîne</a>
+    <a href="/work.html" data-fr="Le registre" data-en="The record">Le registre</a>
+    <a href="#invite" data-fr="Nous inviter" data-en="Invite us">Nous inviter</a>
     <a href="/services.html" data-fr="Services" data-en="Services">Services</a>
-    <a href="/work.html" data-fr="Réalisations" data-en="Work">Réalisations</a>
     <a href="/about.html" data-fr="À propos" data-en="About">À propos</a>
     <a href="/contact.html" data-fr="Contact" data-en="Contact">Contact</a>
   </div>
 </nav>
 
 <!-- ====== HERO ======
-     .stage keeps the hero film-black in BOTH themes — the brand
-     lives in the dark. The mascot bleeds off the bottom-right;
-     it removes itself if the asset isn't in place yet. -->
-<header class="hero stage" id="hero">
-  <img class="hero-dog" src="/assets/brand/mascot-dog.png" alt="" aria-hidden="true"
-       onerror="this.remove()">
+     Showreel behind the name. The <video> carries no autoplay
+     attribute on purpose — main.js starts it only when the visitor
+     hasn't asked for reduced motion, so the poster frame is the
+     honest default for everyone else (and for no-JS). -->
+<header class="hero hero--reel stage" id="hero">
+  <video class="hero-video" id="hero-video" muted loop playsinline preload="none"
+         poster="/assets/portfolio/recap-2025.jpg" aria-hidden="true" tabindex="-1">
+    <source src="/assets/portfolio/recap-2025.mp4" type="video/mp4">
+  </video>
+  <div class="hero-veil"></div>
+  <img class="hero-dog" src="/assets/brand/mascot-dog.png" alt="" aria-hidden="true" onerror="this.remove()">
   <div class="container">
     <div class="hero-inner">
-      <p class="eyebrow gs-reveal" data-fr="Vidéo &amp; diffusion en direct · Haut-Saint-Laurent" data-en="Video &amp; livestreaming · Haut-Saint-Laurent">Vidéo &amp; diffusion en direct · Haut-Saint-Laurent</p>
-      <h1 class="hero-title gs-reveal"
-          data-fr="On filme votre histoire. <span class='accent'>On la diffuse à votre communauté.</span>"
-          data-en="We film your story. <span class='accent'>We stream it to your community.</span>">On filme votre histoire. <span class="accent">On la diffuse à votre communauté.</span></h1>
-      <p class="hero-tag gs-reveal"><span class="slab">Capture. Create. Connect.</span></p>
+      <p class="eyebrow gs-reveal" data-fr="Le registre vidéo du Haut-Saint-Laurent" data-en="The video record of the Haut-Saint-Laurent">Le registre vidéo du Haut-Saint-Laurent</p>
+      <h1 class="wordmark-xl gs-reveal">Stray Dog <span class="accent">Media</span></h1>
+      <p class="hero-tag gs-reveal"><span class="slab" data-fr="En direct, sans laisse." data-en="Live and unleashed.">En direct, sans laisse.</span></p>
       <p class="lead hero-sub gs-reveal"
-         data-fr="Stray Dog Media est le studio vidéo et de diffusion en direct du Haut-Saint-Laurent — pour les commerces, les OBNL, les municipalités et les événements locaux qui veulent être vus."
-         data-en="Stray Dog Media is the Haut-Saint-Laurent's video and livestream studio — for local businesses, non-profits, municipalities and community events that want to be seen.">Stray Dog Media est le studio vidéo et de diffusion en direct du Haut-Saint-Laurent — pour les commerces, les OBNL, les municipalités et les événements locaux qui veulent être vus.</p>
+         data-fr="On documente les rodéos, les derbies, les défilés, les tournois et les assemblées de la région — et tout se retrouve en ligne, gratuitement, pour ceux qui y étaient comme pour ceux qui viendront après."
+         data-en="We document the region's rodeos, derbies, parades, tournaments and assemblies — and it all goes online, free, for the people who were there and the ones who come after.">On documente les rodéos, les derbies, les défilés, les tournois et les assemblées de la région — et tout se retrouve en ligne, gratuitement, pour ceux qui y étaient comme pour ceux qui viendront après.</p>
       <div class="hero-cta gs-reveal">
-        <a href="/contact.html" class="btn btn-primary btn-lg" data-fr="Discuter de votre projet" data-en="Talk about your project">Discuter de votre projet</a>
-        <a href="#services" class="btn btn-ghost btn-lg" data-fr="Voir les services ↓" data-en="See services ↓">Voir les services ↓</a>
+        <a href="#latest" class="btn btn-primary btn-lg" data-fr="Voir la chaîne" data-en="Watch the channel">Voir la chaîne</a>
+        <a href="#invite" class="btn btn-ghost btn-lg" data-fr="Nous inviter" data-en="Invite us">Nous inviter</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- ====== SPEC STRIP (capability facts, brand-art style) ====== -->
-<section class="stage" style="border-bottom:1px solid var(--border)">
+<!-- ====== MARQUEE — what's on the record ======
+     Two identical groups; the track translates exactly -50% so the
+     loop seam is invisible. Paused on hover and under reduced motion. -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__group">
+      <span class="marquee__item">Rodéo Pro d'Ormstown</span>
+      <span class="marquee__item">Demolition Derby</span>
+      <span class="marquee__item">Foire d'Ormstown</span>
+      <span class="marquee__item">La Grande Marche</span>
+      <span class="marquee__item">Flat Track</span>
+      <span class="marquee__item">Bull Riding</span>
+      <span class="marquee__item">4-H</span>
+      <span class="marquee__item">Tournoi de golf LBA</span>
+      <span class="marquee__item">Séances du conseil</span>
+      <span class="marquee__item">Jardin communautaire</span>
+    </div>
+    <div class="marquee__group">
+      <span class="marquee__item">Rodéo Pro d'Ormstown</span>
+      <span class="marquee__item">Demolition Derby</span>
+      <span class="marquee__item">Foire d'Ormstown</span>
+      <span class="marquee__item">La Grande Marche</span>
+      <span class="marquee__item">Flat Track</span>
+      <span class="marquee__item">Bull Riding</span>
+      <span class="marquee__item">4-H</span>
+      <span class="marquee__item">Tournoi de golf LBA</span>
+      <span class="marquee__item">Séances du conseil</span>
+      <span class="marquee__item">Jardin communautaire</span>
+    </div>
+  </div>
+</div>
+
+<!--
+  ====== STAT STRIP — INTENTIONALLY NOT SHIPPED YET ======
+  The .stat-strip component is built and demoed in design-system.html,
+  but it needs REAL figures from Stray and nothing invented goes live.
+  Drop this block in once we have: events documented, hours streamed,
+  years active, communities covered.
+
+  <section class="section">
+    <div class="container">
+      <div class="stat-strip">
+        <div class="gs-reveal"><p class="stat-num" data-count="000">0</p><p class="stat-label">…</p></div>
+      </div>
+    </div>
+  </section>
+-->
+
+<!-- ====== LATEST FROM THE CHANNEL ======
+     Cards are rendered by main.js from /assets/data/latest-videos.json,
+     which a daily GitHub Action regenerates from the channel RSS feed.
+     The noscript/fallback keeps a real link out if any of that fails. -->
+<section class="section" id="latest">
   <div class="container">
-    <div class="spec-row gs-reveal" style="border-top:0">
-      <div class="spec">
-        <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M15 8v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2z"/><path d="m22 8-5 4 5 4V8z"/></svg></div>
-        <p class="spec-label" data-fr="Multicaméra" data-en="Multicam">Multicaméra</p>
-        <p class="spec-detail" data-fr="Plusieurs angles, son propre, montage sur place" data-en="Multiple angles, clean audio, cut on site">Plusieurs angles, son propre, montage sur place</p>
-      </div>
-      <div class="spec">
-        <div class="spec-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg></div>
-        <p class="spec-label" data-fr="En direct" data-en="Live">En direct</p>
-        <p class="spec-detail" data-fr="YouTube, Facebook, votre site — en même temps" data-en="YouTube, Facebook, your own site — at once">YouTube, Facebook, votre site — en même temps</p>
-      </div>
-      <div class="spec">
-        <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <p class="spec-label" data-fr="Bilingue" data-en="Bilingual">Bilingue</p>
-        <p class="spec-detail" data-fr="Tournage, animation et livrables en FR et EN" data-en="Shoot, hosting and deliverables in FR and EN">Tournage, animation et livrables en FR et EN</p>
-      </div>
-      <div class="spec">
-        <div class="spec-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <p class="spec-label" data-fr="D'ici" data-en="From here">D'ici</p>
-        <p class="spec-detail" data-fr="Basé dans le Haut-Saint-Laurent, pas de frais de route" data-en="Based in the Haut-Saint-Laurent, no travel fees">Basé dans le Haut-Saint-Laurent, pas de frais de route</p>
-      </div>
+    <div class="section-head gs-reveal">
+      <p class="eyebrow" data-fr="Dernières publications" data-en="Latest uploads">Dernières publications</p>
+      <h2 data-fr="Ce qui vient de sortir" data-en="Fresh off the channel">Ce qui vient de sortir</h2>
+      <p class="lead" data-fr="La chaîne se remplit après chaque fin de semaine. Abonnez-vous et vous ne manquerez rien de ce qui se passe dans la vallée." data-en="The channel fills up after every weekend. Subscribe and you won't miss anything happening in the valley.">La chaîne se remplit après chaque fin de semaine. Abonnez-vous et vous ne manquerez rien de ce qui se passe dans la vallée.</p>
+    </div>
+
+    <div class="yt-grid" id="yt-grid" data-loading
+         data-label-watch-fr="Regarder" data-label-watch-en="Watch"></div>
+
+    <div class="hero-cta gs-reveal" style="margin-top:var(--space-lg)">
+      <a class="btn btn-yt btn-lg" href="https://www.youtube.com/@StrayDogMedia_ca?sub_confirmation=1" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+        <span data-fr="S'abonner sur YouTube" data-en="Subscribe on YouTube">S'abonner sur YouTube</span>
+      </a>
+      <a class="btn btn-ghost btn-lg" href="https://www.youtube.com/@StrayDogMedia_ca" target="_blank" rel="noopener" data-fr="Toute la chaîne ↗" data-en="The whole channel ↗">Toute la chaîne ↗</a>
     </div>
   </div>
 </section>
 
-<!-- ====== SERVICES ====== -->
-<section class="section" id="services">
-  <div class="container">
-    <p class="eyebrow gs-reveal" data-fr="Ce qu'on fait" data-en="What we do">Ce qu'on fait</p>
-    <h2 class="gs-reveal" style="font-size:var(--step-3);margin-bottom:var(--space-lg)" data-fr="Trois façons de vous faire voir" data-en="Three ways to get you seen">Trois façons de vous faire voir</h2>
-    <div class="grid grid-3">
-      <article class="card card-interactive gs-reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M15 8v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2z"/><path d="m22 8-5 4 5 4V8z"/></svg></div>
-        <p class="card-index">01</p>
-        <h3 class="card-title" data-fr="Vidéographie" data-en="Videography">Vidéographie</h3>
-        <p class="card-body" data-fr="Vidéos promotionnelles et de marque, portraits d'entreprise, capsules pour les réseaux sociaux — pensées pour être regardées et partagées." data-en="Promo and brand videos, business profiles, social clips — made to be watched and shared.">Vidéos promotionnelles et de marque, portraits d'entreprise, capsules pour les réseaux sociaux — pensées pour être regardées et partagées.</p>
-      </article>
-      <article class="card card-interactive gs-reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg></div>
-        <p class="card-index">02</p>
-        <h3 class="card-title" data-fr="Diffusion en direct" data-en="Livestreaming">Diffusion en direct</h3>
-        <p class="card-body" data-fr="Séances du conseil, assemblées, sports, spectacles et conférences diffusés en direct — pour rejoindre les gens qui ne peuvent pas être sur place." data-en="Council meetings, assemblies, sports, shows and conferences streamed live — reaching the people who can't be in the room.">Séances du conseil, assemblées, sports, spectacles et conférences diffusés en direct — pour rejoindre les gens qui ne peuvent pas être sur place.</p>
-      </article>
-      <article class="card card-interactive gs-reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-        <p class="card-index">03</p>
-        <h3 class="card-title" data-fr="Couverture d'événements" data-en="Event coverage">Couverture d'événements</h3>
-        <p class="card-body" data-fr="Festivals, tournois, inaugurations et rassemblements communautaires captés sur le vif, avec un regard documentaire et local." data-en="Festivals, tournaments, openings and community gatherings captured on the ground, with a local documentary eye.">Festivals, tournois, inaugurations et rassemblements communautaires captés sur le vif, avec un regard documentaire et local.</p>
-      </article>
-    </div>
-    <div style="margin-top:var(--space-lg)" class="gs-reveal">
-      <a href="/services.html" class="btn btn-ghost" data-fr="Tous les services →" data-en="All services →">Tous les services →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ====== WHO IT'S FOR ====== -->
+<!-- ====== THE ARCHIVE, BY CATEGORY ====== -->
 <section class="section" style="background:var(--bg-sunken)">
   <div class="container">
-    <p class="eyebrow gs-reveal" data-fr="Pour qui" data-en="Who it's for">Pour qui</p>
-    <h2 class="gs-reveal" style="font-size:var(--step-3);margin-bottom:var(--space-md)" data-fr="Ancré dans le Haut-Saint-Laurent" data-en="Rooted in the Haut-Saint-Laurent">Ancré dans le Haut-Saint-Laurent</h2>
-    <p class="lead gs-reveal" style="margin-bottom:var(--space-lg)" data-fr="On travaille avec les organisations qui font vivre la région." data-en="We work with the organizations that make the region tick.">On travaille avec les organisations qui font vivre la région.</p>
-    <div class="audience gs-reveal">
-      <span class="chip" data-fr="Commerces locaux" data-en="Local businesses">Commerces locaux</span>
-      <span class="chip" data-fr="OBNL &amp; organismes" data-en="Non-profits &amp; orgs">OBNL &amp; organismes</span>
-      <span class="chip" data-fr="Municipalités" data-en="Municipalities">Municipalités</span>
-      <span class="chip" data-fr="Événements &amp; festivals" data-en="Events &amp; festivals">Événements &amp; festivals</span>
-      <span class="chip" data-fr="Sports &amp; clubs" data-en="Sports &amp; clubs">Sports &amp; clubs</span>
+    <div class="section-head gs-reveal">
+      <p class="eyebrow" data-fr="Le registre" data-en="The record">Le registre</p>
+      <h2 data-fr="Une région, filmée au complet" data-en="A whole region, on film">Une région, filmée au complet</h2>
+      <p class="lead" data-fr="Le sport, l'agricole, le municipal, le communautaire. Si ça rassemble du monde dans le Haut-Saint-Laurent, ça mérite d'être gardé." data-en="Sport, agriculture, municipal, community. If it brings people together in the Haut-Saint-Laurent, it deserves to be kept.">Le sport, l'agricole, le municipal, le communautaire. Si ça rassemble du monde dans le Haut-Saint-Laurent, ça mérite d'être gardé.</p>
+    </div>
+    <div class="cat-grid gs-reveal">
+      <a class="cat" href="https://www.youtube.com/@StrayDogMedia_ca/search?query=rodeo" target="_blank" rel="noopener"><span class="cat__name" data-fr="Rodéo" data-en="Rodeo">Rodéo</span><span class="cat__count">↗</span></a>
+      <a class="cat" href="https://www.youtube.com/@StrayDogMedia_ca/search?query=derby" target="_blank" rel="noopener"><span class="cat__name" data-fr="Derby" data-en="Derby">Derby</span><span class="cat__count">↗</span></a>
+      <a class="cat" href="https://www.youtube.com/@StrayDogMedia_ca/search?query=fair" target="_blank" rel="noopener"><span class="cat__name" data-fr="Foire &amp; 4-H" data-en="Fair &amp; 4-H">Foire &amp; 4-H</span><span class="cat__count">↗</span></a>
+      <a class="cat" href="https://www.youtube.com/@StrayDogMedia_ca/search?query=parade" target="_blank" rel="noopener"><span class="cat__name" data-fr="Défilés" data-en="Parades">Défilés</span><span class="cat__count">↗</span></a>
+      <a class="cat" href="https://www.youtube.com/@StrayDogMedia_ca/search?query=racing" target="_blank" rel="noopener"><span class="cat__name" data-fr="Course &amp; flat track" data-en="Racing &amp; flat track">Course &amp; flat track</span><span class="cat__count">↗</span></a>
+      <a class="cat" href="/work.html"><span class="cat__name" data-fr="Communautaire" data-en="Community">Communautaire</span><span class="cat__count">→</span></a>
+      <a class="cat" href="/work.html"><span class="cat__name" data-fr="Municipal" data-en="Municipal">Municipal</span><span class="cat__count">→</span></a>
+      <a class="cat" href="/work.html"><span class="cat__name" data-fr="Entreprises d'ici" data-en="Local business">Entreprises d'ici</span><span class="cat__count">→</span></a>
+    </div>
+    <div style="margin-top:var(--space-lg)" class="gs-reveal">
+      <a href="/work.html" class="btn btn-ghost" data-fr="Parcourir le registre →" data-en="Browse the record →">Parcourir le registre →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOR ORGANIZERS & MUNICIPALITIES ====== -->
+<section class="section" id="invite">
+  <div class="container">
+    <div class="section-head gs-reveal">
+      <p class="eyebrow" data-fr="Organisateurs &amp; municipalités" data-en="Organizers &amp; municipalities">Organisateurs &amp; municipalités</p>
+      <h2 data-fr="Votre événement mérite d'exister ailleurs que dans les souvenirs" data-en="Your event deserves to exist somewhere other than memory">Votre événement mérite d'exister ailleurs que dans les souvenirs</h2>
+      <p class="lead" data-fr="Une bonne partie de ce qu'on filme dans la région, on le filme parce que ça compte — pas parce qu'il y a un budget derrière. Si vous organisez quelque chose, écrivez-nous avant de vous demander si vous en avez les moyens." data-en="A good part of what we film in the region gets filmed because it matters — not because there's a budget behind it. If you're organizing something, write to us before you start wondering whether you can afford it.">Une bonne partie de ce qu'on filme dans la région, on le filme parce que ça compte — pas parce qu'il y a un budget derrière. Si vous organisez quelque chose, écrivez-nous avant de vous demander si vous en avez les moyens.</p>
+    </div>
+    <div class="invite-steps gs-reveal">
+      <div class="step">
+        <h3 data-fr="Dites-nous quoi et quand" data-en="Tell us what and when">Dites-nous quoi et quand</h3>
+        <p data-fr="La date, le lieu, ce qui se passe. C'est tout ce qu'il nous faut pour commencer." data-en="The date, the place, what's happening. That's all we need to start.">La date, le lieu, ce qui se passe. C'est tout ce qu'il nous faut pour commencer.</p>
+      </div>
+      <div class="step">
+        <h3 data-fr="On repère le terrain" data-en="We scout the ground">On repère le terrain</h3>
+        <p data-fr="Angles, son, électricité, connexion pour le direct. On arrive en sachant où se placer." data-en="Angles, sound, power, connection for the stream. We arrive knowing where to stand.">Angles, son, électricité, connexion pour le direct. On arrive en sachant où se placer.</p>
+      </div>
+      <div class="step">
+        <h3 data-fr="On filme sans vous déranger" data-en="We film without getting in the way">On filme sans vous déranger</h3>
+        <p data-fr="Vous avez un événement à faire rouler. Notre travail est de disparaître pendant qu'on le capte." data-en="You have an event to run. Our job is to disappear while we capture it.">Vous avez un événement à faire rouler. Notre travail est de disparaître pendant qu'on le capte.</p>
+      </div>
+      <div class="step">
+        <h3 data-fr="Ça vit en ligne" data-en="It lives online">Ça vit en ligne</h3>
+        <p data-fr="Publié sur la chaîne, libre à regarder et à partager — par vous, vos commanditaires et votre monde." data-en="Published on the channel, free to watch and share — by you, your sponsors and your people.">Publié sur la chaîne, libre à regarder et à partager — par vous, vos commanditaires et votre monde.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -170,13 +228,13 @@
   </div>
 </section>
 
-<!-- ====== CTA — the red band. One bark per page. ====== -->
+<!-- ====== CTA — the red band ====== -->
 <section class="band-red">
   <div class="container band-inner">
     <div class="gs-reveal-left">
-      <p class="eyebrow" data-fr="On commence?" data-en="Shall we start?">On commence?</p>
-      <h2 style="font-size:var(--step-3);margin-top:var(--space-2xs)" data-fr="Prêt à vous faire voir?" data-en="Ready to get seen?">Prêt à vous faire voir?</h2>
-      <p class="lead" style="margin-top:var(--space-2xs);color:rgba(255,255,255,0.9)" data-fr="Parlez-nous de votre projet, de votre organisation ou de votre événement." data-en="Tell us about your project, organization or event.">Parlez-nous de votre projet, de votre organisation ou de votre événement.</p>
+      <p class="eyebrow" data-fr="Vous organisez quelque chose?" data-en="Organizing something?">Vous organisez quelque chose?</p>
+      <h2 style="font-size:var(--step-3);margin-top:var(--space-2xs)" data-fr="Mettez-le au registre" data-en="Get it on the record">Mettez-le au registre</h2>
+      <p class="lead" style="margin-top:var(--space-2xs);color:rgba(255,255,255,0.9)" data-fr="Une date et un lieu suffisent pour partir la conversation." data-en="A date and a place is enough to start the conversation.">Une date et un lieu suffisent pour partir la conversation.</p>
     </div>
     <a href="/contact.html" class="btn btn-ghost btn-lg gs-reveal-right" data-fr="Nous écrire" data-en="Get in touch">Nous écrire</a>
   </div>
@@ -191,6 +249,8 @@
         <span>Stray Dog Media</span>
       </a>
       <div class="footer-strai">
+        <a href="https://www.youtube.com/@StrayDogMedia_ca" target="_blank" rel="noopener">YouTube ↗</a>
+        <span style="margin:0 0.5em">·</span>
         <span data-fr="Le pendant IA :" data-en="The AI twin:">Le pendant IA :</span>
         <a href="https://strai.ca" target="_blank" rel="noopener">strAI.ca ↗</a>
       </div>

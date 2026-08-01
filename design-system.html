@@ -54,7 +54,7 @@
 
 <header class="guide-head">
   <div class="container">
-    <p class="eyebrow">Design System · v0.3 · sibling of strAI.ca</p>
+    <p class="eyebrow">Design System · v0.4 · sibling of strAI.ca</p>
     <h1 style="font-size:var(--step-4)">Stray Dog Media</h1>
     <p class="hero-tag"><span class="slab">Refined but dangerous.</span></p>
     <p class="lead" style="margin-top:var(--space-sm)">The visual foundation for the site. Driven by <code>assets/css/tokens.css</code> —
@@ -232,10 +232,60 @@
   </div>
 </section>
 
+<section class="guide-section">
+  <div class="container">
+    <p class="eyebrow">07 — The record (v0.4)</p>
+    <h2 class="guide-h">Archive components</h2>
+    <p class="muted" style="font-size:var(--step--1);max-width:62ch;margin-bottom:var(--space-lg)">
+      Added when the site was repositioned from a services brochure to the front door of an
+      ongoing video archive. These carry the "authority, not availability" idea.</p>
+
+    <h3 style="font-size:var(--step-1);margin-bottom:var(--space-sm)">Stat strip <code>.stat-strip</code></h3>
+    <p class="muted" style="font-size:var(--step--1);max-width:62ch;margin-bottom:var(--space-sm)">
+      Count-up on scroll via <code>data-count</code>, tabular numerals so the layout doesn't
+      jitter while digits tick. <b>Sample values below — not live on the homepage until Stray
+      supplies real figures.</b></p>
+    <div class="stat-strip" style="margin-bottom:var(--space-lg)">
+      <div><p class="stat-num" data-count="180" data-suffix="+">180+</p><p class="stat-label">Sample — events documented</p></div>
+      <div><p class="stat-num" data-count="400" data-suffix=" h">400 h</p><p class="stat-label">Sample — streamed live</p></div>
+      <div><p class="stat-num" data-count="12">12</p><p class="stat-label">Sample — communities covered</p></div>
+      <div><p class="stat-num" data-count="100" data-suffix="%">100%</p><p class="stat-label">Sample — free to watch</p></div>
+    </div>
+
+    <h3 style="font-size:var(--step-1);margin-bottom:var(--space-sm)">Channel card <code>.yt-card</code></h3>
+    <p class="muted" style="font-size:var(--step--1);max-width:62ch;margin-bottom:var(--space-sm)">
+      A facade: thumbnail and play button only. The real YouTube player is injected on click,
+      so the page stays fast and sets no YouTube cookies for visitors who never press play.
+      Populated from <code>assets/data/latest-videos.json</code>, refreshed daily by
+      <code>.github/workflows/youtube-latest.yml</code>.</p>
+    <div class="cat-grid" style="margin-bottom:var(--space-lg)">
+      <a class="cat" href="#"><span class="cat__name">Rodéo</span><span class="cat__count">↗</span></a>
+      <a class="cat" href="#"><span class="cat__name">Derby</span><span class="cat__count">↗</span></a>
+      <a class="cat" href="#"><span class="cat__name">Défilés</span><span class="cat__count">↗</span></a>
+    </div>
+    <p class="muted" style="font-size:var(--step--1);margin-bottom:var(--space-lg)">
+      ↑ <code>.cat</code> — archive category rows.</p>
+
+    <h3 style="font-size:var(--step-1);margin-bottom:var(--space-sm)">Invite steps <code>.invite-steps</code></h3>
+    <div class="invite-steps">
+      <div class="step"><h3>Tell us what and when</h3><p>Deliberately short. The point is that asking feels like no work.</p></div>
+      <div class="step"><h3>We scout the ground</h3><p>Angles, sound, power, connection.</p></div>
+      <div class="step"><h3>It lives online</h3><p>Free to watch and share.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__group"><span class="marquee__item">.marquee</span><span class="marquee__item">Two identical groups</span><span class="marquee__item">Translated −50%</span><span class="marquee__item">Seam is invisible</span><span class="marquee__item">Pauses on hover</span></div>
+    <div class="marquee__group"><span class="marquee__item">.marquee</span><span class="marquee__item">Two identical groups</span><span class="marquee__item">Translated −50%</span><span class="marquee__item">Seam is invisible</span><span class="marquee__item">Pauses on hover</span></div>
+  </div>
+</div>
+
 <footer>
   <div class="container footer-row">
     <span class="footer-logo"><img src="/assets/brand/logo-camera-paw-192.png" alt="">Stray Dog Media</span>
-    <span class="muted" style="font-family:var(--font-mono);font-size:0.75rem">Design system v0.3 · Refined but dangerous</span>
+    <span class="muted" style="font-family:var(--font-mono);font-size:0.75rem">Design system v0.4 · Refined but dangerous</span>
   </div>
 </footer>
 

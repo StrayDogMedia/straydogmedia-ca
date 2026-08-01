@@ -1,0 +1,43 @@
+name: Refresh latest YouTube uploads
+
+# Keeps assets/data/latest-videos.json in sync with the channel.
+#
+# Why a build step and not a browser fetch: YouTube's RSS feed sends no
+# Access-Control-Allow-Origin header, so a static page cannot read it directly.
+# This job does the fetch server-side and commits the result, which the site
+# then reads same-origin. No API key, no third-party service, free.
+
+on:
+  schedule:
+    - cron: '17 9 * * *'   # daily, 09:17 UTC (~05:17 Eastern)
+  workflow_dispatch:        # lets Stray (or us) refresh on demand
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-latest
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch channel feed and rebuild latest-videos.json
+        env:
+          CHANNEL_ID: UCiURtAT2FjCeqf2WbwkcJSA   # @StrayDogMedia_ca
+        run: python3 .github/scripts/fetch_youtube.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- assets/data/latest-videos.json; then
+            echo "No change — channel feed is already up to date."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/latest-videos.json
+          git commit -m "Refresh latest YouTube uploads [skip ci]"
+          git push
