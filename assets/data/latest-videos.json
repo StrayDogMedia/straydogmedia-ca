@@ -2,6 +2,14 @@
   "channel": "https://www.youtube.com/@StrayDogMedia_ca",
   "videos": [
     {
+      "id": "gLzJcrOL1ks",
+      "title": "Stray Dog Media is live!",
+      "published": "2026-08-07",
+      "thumb": "https://i.ytimg.com/vi/gLzJcrOL1ks/hq720.jpg",
+      "thumbFallback": "https://i.ytimg.com/vi/gLzJcrOL1ks/hqdefault.jpg",
+      "blurb": ""
+    },
+    {
       "id": "w6Y1zajXmHI",
       "title": "Full size pick up: winner Guillaume Lefebvre",
       "published": "2026-08-01",
@@ -55,14 +63,6 @@
       "published": "2026-08-01",
       "thumb": "https://i.ytimg.com/vi/W5vihjGvmg0/hq720.jpg",
       "thumbFallback": "https://i.ytimg.com/vi/W5vihjGvmg0/hqdefault.jpg",
-      "blurb": ""
-    },
-    {
-      "id": "l1Z0G_Y8iEM",
-      "title": "Hold on tight! #blackcreekrodeo",
-      "published": "2026-05-21",
-      "thumb": "https://i.ytimg.com/vi/l1Z0G_Y8iEM/hq720.jpg",
-      "thumbFallback": "https://i.ytimg.com/vi/l1Z0G_Y8iEM/hqdefault.jpg",
       "blurb": ""
     }
   ]
