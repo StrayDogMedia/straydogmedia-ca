@@ -2,6 +2,14 @@
   "channel": "https://www.youtube.com/@StrayDogMedia_ca",
   "videos": [
     {
+      "id": "5f4--OnA0zs",
+      "title": "Huntingdon Fair 2026 Truck & Tractor Pull — Friday Night Recap",
+      "published": "2026-08-08",
+      "thumb": "https://i.ytimg.com/vi/5f4--OnA0zs/hq720.jpg",
+      "thumbFallback": "https://i.ytimg.com/vi/5f4--OnA0zs/hqdefault.jpg",
+      "blurb": "Friday night at the Huntingdon Fair belongs to the pullers. Trucks and tractors, full throttle down the track, with the grandstand on its fe"
+    },
+    {
       "id": "gLzJcrOL1ks",
       "title": "Stray Dog Media is live!",
       "published": "2026-08-07",
@@ -55,14 +63,6 @@
       "published": "2026-08-01",
       "thumb": "https://i.ytimg.com/vi/KYTSDc70A0U/hq720.jpg",
       "thumbFallback": "https://i.ytimg.com/vi/KYTSDc70A0U/hqdefault.jpg",
-      "blurb": ""
-    },
-    {
-      "id": "W5vihjGvmg0",
-      "title": "6 cylinder mod: winner Francis Morin",
-      "published": "2026-08-01",
-      "thumb": "https://i.ytimg.com/vi/W5vihjGvmg0/hq720.jpg",
-      "thumbFallback": "https://i.ytimg.com/vi/W5vihjGvmg0/hqdefault.jpg",
       "blurb": ""
     }
   ]
