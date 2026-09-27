@@ -2,6 +2,22 @@
   "channel": "https://www.youtube.com/@StrayDogMedia_ca",
   "videos": [
     {
+      "id": "IOnWdeKB528",
+      "title": "STRAY is Live!",
+      "published": "2026-09-27",
+      "thumb": "https://i.ytimg.com/vi/IOnWdeKB528/hq720.jpg",
+      "thumbFallback": "https://i.ytimg.com/vi/IOnWdeKB528/hqdefault.jpg",
+      "blurb": ""
+    },
+    {
+      "id": "qQ6erNKEN14",
+      "title": "Live streaming of Stray Dog Media",
+      "published": "2026-09-27",
+      "thumb": "https://i.ytimg.com/vi/qQ6erNKEN14/hq720.jpg",
+      "thumbFallback": "https://i.ytimg.com/vi/qQ6erNKEN14/hqdefault.jpg",
+      "blurb": "This stream is created with #PRISMLiveStudio"
+    },
+    {
       "id": "hBl2upafg30",
       "title": "Chris McAdam   Tuffer",
       "published": "2026-08-11",
@@ -47,22 +63,6 @@
       "published": "2026-08-11",
       "thumb": "https://i.ytimg.com/vi/Z0eV1Q1YsnY/hq720.jpg",
       "thumbFallback": "https://i.ytimg.com/vi/Z0eV1Q1YsnY/hqdefault.jpg",
-      "blurb": ""
-    },
-    {
-      "id": "iuknZp4Sy8w",
-      "title": "2024 12 09 SDM Shirley Le Bouffe Additionelle Shirley Le Bouffe Additionelle",
-      "published": "2026-08-11",
-      "thumb": "https://i.ytimg.com/vi/iuknZp4Sy8w/hq720.jpg",
-      "thumbFallback": "https://i.ytimg.com/vi/iuknZp4Sy8w/hqdefault.jpg",
-      "blurb": ""
-    },
-    {
-      "id": "_I4S0sTrrxI",
-      "title": "2025 02 22 SDM Havelock Fair Haverlock fair",
-      "published": "2026-08-11",
-      "thumb": "https://i.ytimg.com/vi/_I4S0sTrrxI/hq720.jpg",
-      "thumbFallback": "https://i.ytimg.com/vi/_I4S0sTrrxI/hqdefault.jpg",
       "blurb": ""
     }
   ]
