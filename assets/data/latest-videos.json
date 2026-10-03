@@ -2,6 +2,22 @@
   "channel": "https://www.youtube.com/@StrayDogMedia_ca",
   "videos": [
     {
+      "id": "Yyn1HVpjHXU",
+      "title": "STRAY is live!",
+      "published": "2026-10-03",
+      "thumb": "https://i.ytimg.com/vi/Yyn1HVpjHXU/hq720.jpg",
+      "thumbFallback": "https://i.ytimg.com/vi/Yyn1HVpjHXU/hqdefault.jpg",
+      "blurb": "Black Creek is back at the Ormstown Pro Rodeo!!"
+    },
+    {
+      "id": "VUlLyOEoYuQ",
+      "title": "STRAY is live!",
+      "published": "2026-10-03",
+      "thumb": "https://i.ytimg.com/vi/VUlLyOEoYuQ/hq720.jpg",
+      "thumbFallback": "https://i.ytimg.com/vi/VUlLyOEoYuQ/hqdefault.jpg",
+      "blurb": "Black Creek is back at the Ormstown Pro Rodeo!!"
+    },
+    {
       "id": "hBl2upafg30",
       "title": "Chris McAdam   Tuffer",
       "published": "2026-08-11",
@@ -47,22 +63,6 @@
       "published": "2026-08-11",
       "thumb": "https://i.ytimg.com/vi/Z0eV1Q1YsnY/hq720.jpg",
       "thumbFallback": "https://i.ytimg.com/vi/Z0eV1Q1YsnY/hqdefault.jpg",
-      "blurb": ""
-    },
-    {
-      "id": "iuknZp4Sy8w",
-      "title": "2024 12 09 SDM Shirley Le Bouffe Additionelle Shirley Le Bouffe Additionelle",
-      "published": "2026-08-11",
-      "thumb": "https://i.ytimg.com/vi/iuknZp4Sy8w/hq720.jpg",
-      "thumbFallback": "https://i.ytimg.com/vi/iuknZp4Sy8w/hqdefault.jpg",
-      "blurb": ""
-    },
-    {
-      "id": "_I4S0sTrrxI",
-      "title": "2025 02 22 SDM Havelock Fair Haverlock fair",
-      "published": "2026-08-11",
-      "thumb": "https://i.ytimg.com/vi/_I4S0sTrrxI/hq720.jpg",
-      "thumbFallback": "https://i.ytimg.com/vi/_I4S0sTrrxI/hqdefault.jpg",
       "blurb": ""
     }
   ]
